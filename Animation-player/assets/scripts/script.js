@@ -95,8 +95,15 @@ function addNewElement(tagName, className, parentTag, id) {
 function renderLayer() {
   let parent = document.getElementsByClassName('main__workspace__layers')[0];
   const current = parent.getElementsByClassName('current')[0];
-  let newElement = addNewElement('div', 'main__workspace__layers__layer_wrapper', parent, `l${(+(parent.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`);
-  current.className = current.className.replace(' current', '');
+  let id;
+  if (!current) {
+    id = 'l1';
+  } else {
+    id = `l${(+(parent.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`;
+    current.className = current.className.replace(' current', '');
+  }
+  let newElement = addNewElement('div', 'main__workspace__layers__layer_wrapper', parent, id);
+
   newElement.classList += ' current';
   parent = newElement;
   newElement = addNewElement('div', 'main__workspace__layers__layer', parent);
@@ -111,12 +118,20 @@ function renderLayer() {
 
 function renderCanvas() {
   const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
-  const newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList, `c${(+(canvasList.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`);
+  const current = canvasList.getElementsByClassName('current')[0];
+  let id;
+  if (!current) {
+    id = 'c1';
+  } else {
+    id = `c${(+(canvasList.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`;
+    current.className = current.className.replace(' current', '');
+  }
+  const newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList, id);
   newElement.setAttribute('width', '580');
   newElement.setAttribute('height', '580');
   // eslint-disable-next-line prefer-destructuring
-  const current = canvasList.getElementsByClassName('current')[0];
-  current.className = current.className.replace(' current', '');
+
+
   newElement.classList += ' current';
   draw(newElement);
 }
@@ -129,6 +144,7 @@ function layerEventController() {
   });
   layersList.addEventListener('click', (event) => {
     const eventElement = event.target;
+    const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
     if (eventElement.classList.contains('main__workspace__layers__layer')) {
       const currentLayer = layersList.getElementsByClassName('current')[0];
       const currentId = currentLayer.getAttribute('id').slice(1);
@@ -140,6 +156,17 @@ function layerEventController() {
       const nextCanvas = document.getElementById(`c${eventId}`);
       eventElement.parentElement.classList += ' current';
       nextCanvas.classList += ' current';
+    }
+
+    if (eventElement.classList.contains('main__workspace__layers__layer__make-copy_icon')) {
+      console.log('copy');
+    }
+
+    if (eventElement.classList.contains('main__workspace__layers__layer__delete_icon')) {
+      const deletedEl = event.target.parentElement.parentElement.parentElement;
+      const elementId = deletedEl.getAttribute('id').slice(1);
+      layersList.removeChild(deletedEl);
+      canvas.removeChild(document.getElementById(`c${elementId}`));
     }
   });
 }
