@@ -78,7 +78,7 @@ function draw(value) {
     canvas.className = canvas.className.replace(' active', '');
   });
   canvas.addEventListener('mousemove', (event) => {
-    if (canvas.classList.contains('active')) {
+    if ((canvas.classList.contains('active')) && (buttonContainer[0].getElementsByClassName('active')[0] === buttons[0])) {
       canvasContext.fillRect(event.offsetX / 10, event.offsetY / 10, 1, 1);
     }
   });
@@ -118,7 +118,6 @@ function layerEventController() {
       for (let i = 0; i < layersCollection.length; i += 1) {
         if (layersCollection[i].children[0].classList.contains('current')) {
           canvasList.children[i].className = canvasList.children[i].className.replace(' current', '');
-          console.log(i);
         }
       }
       layer.classList += ' current';
@@ -126,7 +125,6 @@ function layerEventController() {
       for (let i = 0; i < layersCollection.length; i += 1) {
         if (layersCollection[i].children[0].classList.contains('current')) {
           canvasList.children[i].classList += ' current';
-          console.log(i);
         }
       }
     }
