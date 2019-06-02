@@ -2,9 +2,9 @@ const buttonContainer = document.getElementsByClassName('main__workspace__tools_
 
 const buttons = buttonContainer[0].getElementsByClassName('main__workspace__tools__items__tool');
 
-const canvas = document.getElementsByClassName('main__workspace__canvas');
+// const canvas = document.getElementsByClassName('main__workspace__canvas');
 
-const canvasCells = canvas[0].getElementsByClassName('main__workspace__canvas__item');
+// const canvasCells = canvas[0].getElementsByClassName('main__workspace__canvas__item');
 
 const reset = document.getElementsByClassName('footer_button_reset')[0];
 
@@ -22,26 +22,18 @@ function setActive() {
 
   function setActiveByKeybind() {
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'b' || event.key === 'B' || event.key === 'и' || event.key === 'И') {
+      if (event.key === 'p' || event.key === 'P' || event.key === 'з' || event.key === 'З') {
         resetActiveClass(0);
       }
 
       if (event.key === 'e' || event.key === 'E' || event.key === 'у' || event.key === 'У') {
         resetActiveClass(1);
       }
-
-      if (event.key === 'm' || event.key === 'M' || event.key === 'ь' || event.key === 'Ь') {
-        resetActiveClass(2);
-      }
-
-      if (event.key === 't' || event.key === 'T' || event.key === 'е' || event.key === 'Е') {
-        resetActiveClass(3);
-      }
     });
   }
 
   function setActiveByClick() {
-    for (let i = 0; i < buttons.length; i += 1) {
+    for (let i = 0; i < 2; i += 1) {
       buttons[i].addEventListener('click', () => {
         resetActiveClass(i);
       });
@@ -58,6 +50,7 @@ function setActive() {
 
 
 function chooseColor() {
+  document.getElementById('curr-color').style.backgroundColor = getComputedStyle(document.getElementById('curr-color')).backgroundColor;
   function chooseColorHandler(event) {
     const menuButton = document.elementFromPoint(event.clientX, event.clientY).closest('.main__workspace__tools__items__tool');
 
@@ -73,8 +66,45 @@ function chooseColor() {
   return document.body.addEventListener('mouseup', chooseColorHandler);
 }
 
+function draw() {
+  const canvas = document.getElementById('canvas');
+  const canvasContext = canvas.getContext('2d');
+  canvasContext.scale(10, 10);
+  canvas.addEventListener('mousedown', () => {
+    canvas.className += ' active';
+    canvasContext.fillStyle = document.getElementById('curr-color').getAttribute('style').slice(18).slice(0, -1);
+  });
+  canvas.addEventListener('mouseup', () => {
+    canvas.className = canvas.className.replace(' active', '');
+  });
+  canvas.addEventListener('mousemove', (event) => {
+    if (canvas.classList.contains('active')) {
+      canvasContext.fillRect(event.offsetX / 10, event.offsetY / 10, 1, 1);
+    }
+  });
+}
+function addNewElement(tagName, className, parentTag, id) {
+  const newElement = document.createElement(tagName);
+  newElement.className += className;
+  if (arguments.length > 3) {
+    newElement.id = id;
+  }
+  parentTag.appendChild(newElement);
+  return newElement;
+}
 
-function fillCellByPaintBucket() {
+function addNewLayer() {
+  const layersList = document.getElementsByClassName('main__workspace__layers')[0];
+  document.getElementById('add-layer').addEventListener('click', () => {
+    const newElement = addNewElement('div', 'main__workspace__layers__layer', addNewElement('li', 'main__workspace__layers__layer_wrapper', layersList));
+      const current = layersList.getElementsByClassName('current')[0];
+
+
+          current.className = current.className.replace(' current', '');
+      newElement.classList += ' current';
+  });
+}
+/* function drawSomething() {
   return (function () {
     for (let i = 0; i < canvasCells.length; i += 1) {
       canvasCells[i].style.backgroundColor = localStorage.getItem(`bckgr-clr-cell-${i}`);
@@ -90,104 +120,7 @@ function fillCellByPaintBucket() {
       });
     }
   }());
-}
-
-function transformCell() {
-  return (function () {
-    for (let i = 0; i < canvasCells.length; i += 1) {
-      canvasCells[i].style.borderRadius = localStorage.getItem(`form-cell-${i}`);
-
-      canvasCells[i].addEventListener('click', () => {
-        if (buttonContainer[0].getElementsByClassName('active')[0] === buttons[3]) {
-          if (getComputedStyle(canvasCells[i]).borderRadius === '0px') {
-            canvasCells[i].style.borderRadius = '50%';
-
-            localStorage.setItem(`form-cell-${i}`, '50%');
-          } else {
-            canvasCells[i].style.borderRadius = '0';
-
-            localStorage.setItem(`form-cell-${i}`, '0');
-          }
-        }
-      });
-    }
-  }());
-}
-
-
-function moveCell() {
-  function move(index, e) {
-    if (e.which !== 1) {
-      return;
-    }
-
-    const downX = e.pageX;
-
-    const downY = e.pageY;
-
-    const prevX = +getComputedStyle(canvasCells[index]).left.slice(0, -2);
-
-    const prevY = +getComputedStyle(canvasCells[index]).top.slice(0, -2);
-
-
-    canvasCells[index].style.zIndex = 10;
-
-    localStorage.setItem(`z-index-cell-${index}`, canvasCells[index].style.zIndex);
-
-
-    function moveAt(position) {
-      canvasCells[index].style.left = `${prevX + position.pageX - downX}px`;
-
-      canvasCells[index].style.top = `${prevY + position.pageY - downY}px`;
-    }
-
-
-    document.onmousemove = function (el) {
-      moveAt(el);
-    };
-
-    canvasCells[index].onmouseup = function () {
-      document.onmousemove = null;
-
-      canvasCells[index].onmouseup = null;
-
-      localStorage.setItem(`placement-x-cell-${index}`, canvasCells[index].style.left);
-
-      localStorage.setItem(`placement-y-cell-${index}`, canvasCells[index].style.top);
-    };
-
-
-    canvasCells[index].ondragstart = function () {
-      return false;
-    };
-  }
-
-  return (function () {
-    for (let i = 0; i < canvasCells.length; i += 1) {
-      canvasCells[i].style.left = localStorage.getItem(`placement-x-cell-${i}`);
-
-      canvasCells[i].style.top = localStorage.getItem(`placement-y-cell-${i}`);
-
-      canvasCells[i].style.zIndex = localStorage.getItem(`z-index-cell-${i}`);
-
-      canvasCells[i].addEventListener('mousedown', (event) => {
-        if (buttonContainer[0].getElementsByClassName('active')[0] === buttons[2]) {
-          move(i, event);
-        }
-      });
-    }
-  }());
-}
-
-
-function setCanvas() {
-  fillCellByPaintBucket();
-
-  transformCell();
-
-  moveCell();
-}
-
+} */
 
 function setAdditionalInterface() {
   function resetLocalStorage() {
@@ -210,9 +143,8 @@ function run() {
   setActive();
 
   chooseColor();
-
-  setCanvas();
-
+  draw();
+  addNewLayer();
   setAdditionalInterface();
 }
 

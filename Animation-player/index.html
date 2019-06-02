@@ -23,12 +23,8 @@
                         <button class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Eyedropper</button>
                     </li>
                     <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/move-icon.svg" alt="move_icon" class="main__workspace__tools__items__tool_icon">
-                        <button class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_move">Move</button>
                     </li>
                     <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/transform-icon.svg" alt="transform_icon" class="main__workspace__tools__items__tool_icon">
-                        <button class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_transform">Transform</button>
                     </li>
                 </ul>
             </div>
@@ -63,18 +59,17 @@
                 </ul>
             </div>
         </section>
+        <section class="main__workspace__layers_wrapper">
+            <ul class="main__workspace__layers">
+                <li class="main__workspace__layers__layer_wrapper current">
+                    <div class="main__workspace__layers__layer"></div>
+                </li>
+            </ul>
+            <div class="main__workspace__layers_wrapper__add-layer_button" id="add-layer">Add new layer</div>
+        </section>
         <section class="main__workspace__canvas_wrapper">
-            <div class="main__workspace__canvas">
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-                <div class="main__workspace__canvas__item_wrapper"><div class="main__workspace__canvas__item"></div></div>
-            </div>
+            <canvas id="canvas" width="580" height="580" class="main__workspace__canvas">
+            </canvas>
         </section>
     </article>
 </main>
