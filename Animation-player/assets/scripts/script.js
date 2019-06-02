@@ -185,7 +185,7 @@ function setAdditionalInterface() {
     });
   }
   function findNextCanvas(current) {
-    if (current.nextElementSibling) {
+    if ((current.nextElementSibling) && (current.nextElementSibling.classList.contains('main__workspace__canvas'))) {
       return current.nextElementSibling;
     }
     return document.getElementsByClassName('main__workspace__canvas_wrapper')[0].firstElementChild;
@@ -201,12 +201,10 @@ function setAdditionalInterface() {
     const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
     let currentCanvas = canvasList.getElementsByClassName('current')[0];
     let nextCanvas = findNextCanvas(currentCanvas);
-    console.log(start, start);
     animationId.setAttribute('animated', requestAnimationFrame(function animate(time) {
       const timePassed = time - start;
       if (timePassed >= interval) {
         start = time;
-        console.log(timePassed);
         currentCanvas.className = currentCanvas.className.replace(' current', '');
         nextCanvas.classList += ' current';
         currentCanvas = nextCanvas;
@@ -224,9 +222,24 @@ function setAdditionalInterface() {
     });
   }
 
+
+  function runFullscreen() {
+    document.getElementsByClassName('footer_button_fullscreen')[0].addEventListener('click', () => {
+        const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
+        const newElement = addNewElement('div', 'main__workspace__canvas_wrapper__fullscreen_button', canvas);
+        newElement.innerHTML = 'Turn off fullscreen';
+        newElement.addEventListener('click', () => {
+            document.exitFullscreen();
+            canvas.removeChild(newElement);
+        });
+      canvas.requestFullscreen();
+    });
+  }
+
   return (function () {
     resetLocalStorage();
     animateCanvas();
+    runFullscreen();
   }());
 }
 
