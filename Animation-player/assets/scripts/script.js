@@ -218,20 +218,26 @@ function setAdditionalInterface() {
   function animateCanvas() {
     const animateButton = document.getElementsByClassName('footer_button_animate')[0];
     animateButton.addEventListener('click', () => {
-      runAnimation(400);
+      runAnimation(1000 / (+document.getElementById('fps').getAttribute('value')));
     });
   }
 
+  function setFpsRate() {
+    const fpsSlider = document.getElementById('fps');
+    fpsSlider.addEventListener('input', () => {
+      fpsSlider.setAttribute('value', fpsSlider.value);
+    });
+  }
 
   function runFullscreen() {
     document.getElementsByClassName('footer_button_fullscreen')[0].addEventListener('click', () => {
-        const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
-        const newElement = addNewElement('div', 'main__workspace__canvas_wrapper__fullscreen_button', canvas);
-        newElement.innerHTML = 'Turn off fullscreen';
-        newElement.addEventListener('click', () => {
-            document.exitFullscreen();
-            canvas.removeChild(newElement);
-        });
+      const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
+      const newElement = addNewElement('div', 'main__workspace__canvas_wrapper__fullscreen_button', canvas);
+      newElement.innerHTML = 'Turn off fullscreen';
+      newElement.addEventListener('click', () => {
+        document.exitFullscreen();
+        canvas.removeChild(newElement);
+      });
       canvas.requestFullscreen();
     });
   }
@@ -240,6 +246,7 @@ function setAdditionalInterface() {
     resetLocalStorage();
     animateCanvas();
     runFullscreen();
+    setFpsRate();
   }());
 }
 
