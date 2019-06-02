@@ -66,8 +66,8 @@ function chooseColor() {
   return document.body.addEventListener('mouseup', chooseColorHandler);
 }
 
-function draw() {
-  const canvas = document.getElementById('canvas');
+function draw(value) {
+  const canvas = value;
   const canvasContext = canvas.getContext('2d');
   canvasContext.scale(10, 10);
   canvas.addEventListener('mousedown', () => {
@@ -95,18 +95,40 @@ function addNewElement(tagName, className, parentTag, id) {
 
 function layerEventController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
+  const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   document.getElementById('add-layer').addEventListener('click', () => {
-    const newElement = addNewElement('div', 'main__workspace__layers__layer', addNewElement('li', 'main__workspace__layers__layer_wrapper', layersList));
-    const current = layersList.getElementsByClassName('current')[0];
+    let newElement = addNewElement('div', 'main__workspace__layers__layer', addNewElement('li', 'main__workspace__layers__layer_wrapper', layersList));
+    let current = layersList.getElementsByClassName('current')[0];
     current.className = current.className.replace(' current', '');
     newElement.classList += ' current';
+    newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList);
+    newElement.setAttribute('width', '580');
+    newElement.setAttribute('height', '580');
+    // eslint-disable-next-line prefer-destructuring
+    current = canvasList.getElementsByClassName('current')[0];
+    current.className = current.className.replace(' current', '');
+    newElement.classList += ' current';
+    draw(newElement);
   });
   layersList.addEventListener('click', (event) => {
     const layer = event.target;
     if (layer.classList.contains('main__workspace__layers__layer')) {
       const current = layersList.getElementsByClassName('current')[0];
-      current.className = current.className.replace(' current', '');
+      const layersCollection = layersList.children;
+      for (let i = 0; i < layersCollection.length; i += 1) {
+        if (layersCollection[i].children[0].classList.contains('current')) {
+          canvasList.children[i].className = canvasList.children[i].className.replace(' current', '');
+          console.log(i);
+        }
+      }
       layer.classList += ' current';
+      current.className = current.className.replace(' current', '');
+      for (let i = 0; i < layersCollection.length; i += 1) {
+        if (layersCollection[i].children[0].classList.contains('current')) {
+          canvasList.children[i].classList += ' current';
+          console.log(i);
+        }
+      }
     }
   });
 }
@@ -132,7 +154,7 @@ function run() {
   setActive();
 
   chooseColor();
-  draw();
+  draw(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
   layerEventController();
   setAdditionalInterface();
 }

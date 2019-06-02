@@ -248,11 +248,15 @@ body{
         width: 100%;
         grid-area: canvas;
     }
+
 .main__workspace__canvas_wrapper:before{
         content:"";
         display:block;
         padding-top: 100%;
     }
+.main__workspace__canvas_wrapper>.current{
+    visibility: visible;
+}
 .main__workspace__canvas{
         position: absolute;
         top: 0;
@@ -264,6 +268,7 @@ body{
         grid-gap: 2%;
         background-color: rgba(93,244,228,0.3);
         box-shadow: 0 0 20px 4px #5df4e4;
+    visibility: hidden;
     }
 .main__workspace__canvas__item_wrapper{
         position: relative;
