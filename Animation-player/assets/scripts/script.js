@@ -116,7 +116,7 @@ function renderLayer() {
   newElement.setAttribute('alt', '');
 }
 
-function renderCanvas() {
+function renderCanvas(copiedElemId) {
   const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   const current = canvasList.getElementsByClassName('current')[0];
   let id;
@@ -129,10 +129,11 @@ function renderCanvas() {
   const newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList, id);
   newElement.setAttribute('width', '580');
   newElement.setAttribute('height', '580');
-  // eslint-disable-next-line prefer-destructuring
-
-
   newElement.classList += ' current';
+  if (arguments.length) {
+    const context = newElement.getContext('2d');
+    context.drawImage(document.getElementById(copiedElemId), 0, 0);
+  }
   draw(newElement);
 }
 
@@ -159,7 +160,9 @@ function layerEventController() {
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__make-copy_icon')) {
-      console.log('copy');
+      const copiedElemId = `c${event.target.parentElement.parentElement.parentElement.getAttribute('id').slice(1)}`;
+      renderLayer();
+      renderCanvas(copiedElemId);
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__delete_icon')) {
