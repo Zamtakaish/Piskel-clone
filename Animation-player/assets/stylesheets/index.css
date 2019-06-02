@@ -1,0 +1,18 @@
+@import "header.css";
+@import "main.css";
+@import "footer.css";
+
+@font-face {
+    font-family: "Quantico Regular";
+    src: url(../fonts/Quantico-Regular.otf) format("opentype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Quantico Regular", sans-serif;
+}
+
+body{
+    background-image: url(../pictures/background.jpg);
+}

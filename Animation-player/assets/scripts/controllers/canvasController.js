@@ -11,7 +11,7 @@ export default function canvasController(value) {
   });
   canvas.addEventListener('mousemove', (event) => {
     const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
-    const buttons = buttonContainer[0].getElementsByClassName('main__workspace__tools__items__tool')[0];
+    const buttons = document.getElementsByClassName('main__workspace__tools__items__tool')[0];
     if ((canvas.classList.contains('active')) && (buttonContainer.getElementsByClassName('active')[0] === buttons)) {
       canvasContext.fillRect(event.offsetX / 10, event.offsetY / 10, 1, 1);
     }

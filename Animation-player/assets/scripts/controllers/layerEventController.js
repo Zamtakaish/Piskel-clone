@@ -12,9 +12,14 @@ export default function layerEventController() {
     const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
     if (eventElement.classList.contains('main__workspace__layers__layer')) {
       const currentLayer = layersList.getElementsByClassName('current')[0];
-      const currentId = currentLayer.getAttribute('id').slice(1);
+      let currentId;
+      if (currentLayer) {
+        currentId = currentLayer.getAttribute('id').slice(1);
+        currentLayer.className = currentLayer.className.replace(' current', '');
+      } else {
+        currentId = '1';
+      }
       const currentCanvas = document.getElementById(`c${currentId}`);
-      currentLayer.className = currentLayer.className.replace(' current', '');
       currentCanvas.className = currentCanvas.className.replace(' current', '');
 
       const eventId = eventElement.parentElement.getAttribute('id').slice(1);
