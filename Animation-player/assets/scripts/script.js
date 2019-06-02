@@ -93,34 +93,23 @@ function addNewElement(tagName, className, parentTag, id) {
   return newElement;
 }
 
-function addNewLayer() {
+function layerEventController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
   document.getElementById('add-layer').addEventListener('click', () => {
     const newElement = addNewElement('div', 'main__workspace__layers__layer', addNewElement('li', 'main__workspace__layers__layer_wrapper', layersList));
+    const current = layersList.getElementsByClassName('current')[0];
+    current.className = current.className.replace(' current', '');
+    newElement.classList += ' current';
+  });
+  layersList.addEventListener('click', (event) => {
+    const layer = event.target;
+    if (layer.classList.contains('main__workspace__layers__layer')) {
       const current = layersList.getElementsByClassName('current')[0];
-
-
-          current.className = current.className.replace(' current', '');
-      newElement.classList += ' current';
+      current.className = current.className.replace(' current', '');
+      layer.classList += ' current';
+    }
   });
 }
-/* function drawSomething() {
-  return (function () {
-    for (let i = 0; i < canvasCells.length; i += 1) {
-      canvasCells[i].style.backgroundColor = localStorage.getItem(`bckgr-clr-cell-${i}`);
-
-      canvasCells[i].addEventListener('click', () => {
-        if (buttonContainer[0].getElementsByClassName('active')[0] === buttons[0]) {
-          const newColor = getComputedStyle(document.getElementsByClassName('main__workspace__colors__palette__item_color-display_current-color')[0]).backgroundColor;
-
-          canvasCells[i].style.backgroundColor = newColor;
-
-          localStorage.setItem(`bckgr-clr-cell-${i}`, newColor);
-        }
-      });
-    }
-  }());
-} */
 
 function setAdditionalInterface() {
   function resetLocalStorage() {
@@ -144,7 +133,7 @@ function run() {
 
   chooseColor();
   draw();
-  addNewLayer();
+  layerEventController();
   setAdditionalInterface();
 }
 
