@@ -326,7 +326,6 @@ body{
         height: 80px;
         margin: 0 auto;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         border: 0 solid transparent;
@@ -334,7 +333,8 @@ body{
         box-shadow: 0 -5px 14px 6px #5df4e4;
         background: white linear-gradient(to top, rgba(174, 154, 230, 1) 0%, rgba(8, 76, 212, 1) 44%, rgba(8, 207, 214, 1) 100%);
     }
-.footer_button_reset{
+.footer_button_reset, .footer_button_animate{
+        margin-right: 30px;
         font-size: 2vw;
         text-align: left;
         outline-style: none;
