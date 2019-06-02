@@ -75,9 +75,46 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 20% 20%;
+    grid-template-rows: 20% 20%;
+    grid-template-areas: "empty copy" "empty delete";
+    grid-column-gap: 60%;
+    grid-row-gap: 60%;
     border-radius: 10px;
     background-color: rgba(93,244,228,0.3);
     box-shadow: 0 0 20px 4px #5df4e4;
+}
+.main__workspace__layers__layer__make-copy{
+    grid-area: copy;
+}
+.main__workspace__layers__layer__make-copy_icon{
+    width: 60%
+}
+.main__workspace__layers__layer__delete{
+    grid-area: delete;
+}
+.main__workspace__layers__layer__delete_icon{
+    width: 60%
+}
+.main__workspace__layers__layer__delete, .main__workspace__layers__layer__make-copy{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgba(93,244,228,0.3);
+    box-shadow: 0 0 20px 4px #5df4e4;
+    opacity: 0.2;
+    transition: opacity, 50ms;
+}
+.main__workspace__layers__layer__delete:hover, .main__workspace__layers__layer__make-copy:hover{
+    opacity: 1;
+    transition: opacity, 50ms;
+}
+.main__workspace__layers__layer__delete:active, .main__workspace__layers__layer__make-copy:active{
+    background-color: rgba(93,244,228,0.6);
 }
 .main__workspace__layers_wrapper__add-layer_button{
     width: 85%;

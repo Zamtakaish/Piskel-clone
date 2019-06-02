@@ -61,14 +61,21 @@
         </section>
         <section class="main__workspace__layers_wrapper">
             <ul class="main__workspace__layers">
-                <li class="main__workspace__layers__layer_wrapper current">
-                    <div class="main__workspace__layers__layer"></div>
+                <li class="main__workspace__layers__layer_wrapper current" id="l1">
+                    <div class="main__workspace__layers__layer">
+                        <div class="main__workspace__layers__layer__make-copy">
+                            <img class="main__workspace__layers__layer__make-copy_icon" src="assets/pictures/copy-icon.svg" alt="">
+                        </div>
+                        <div class="main__workspace__layers__layer__delete">
+                            <img class="main__workspace__layers__layer__delete_icon" src="assets/pictures/trash-icon.svg" alt="">
+                        </div>
+                    </div>
                 </li>
             </ul>
             <div class="main__workspace__layers_wrapper__add-layer_button" id="add-layer">Add new layer</div>
         </section>
         <section class="main__workspace__canvas_wrapper">
-            <canvas width="580" height="580" class="main__workspace__canvas current">
+            <canvas width="580" height="580" class="main__workspace__canvas current" id="c1">
             </canvas>
         </section>
     </article>

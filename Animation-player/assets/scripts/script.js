@@ -92,41 +92,54 @@ function addNewElement(tagName, className, parentTag, id) {
   parentTag.appendChild(newElement);
   return newElement;
 }
+function renderLayer() {
+  let parent = document.getElementsByClassName('main__workspace__layers')[0];
+  const current = parent.getElementsByClassName('current')[0];
+  let newElement = addNewElement('div', 'main__workspace__layers__layer_wrapper', parent, `l${(+(parent.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`);
+  current.className = current.className.replace(' current', '');
+  newElement.classList += ' current';
+  parent = newElement;
+  newElement = addNewElement('div', 'main__workspace__layers__layer', parent);
+  parent = newElement;
+  newElement = addNewElement('img', 'main__workspace__layers__layer__make-copy_icon', addNewElement('div', 'main__workspace__layers__layer__make-copy', parent));
+  newElement.setAttribute('src', 'assets/pictures/copy-icon.svg');
+  newElement.setAttribute('alt', '');
+  newElement = addNewElement('img', 'main__workspace__layers__layer__delete_icon', addNewElement('div', 'main__workspace__layers__layer__delete', parent));
+  newElement.setAttribute('src', 'assets/pictures/trash-icon.svg');
+  newElement.setAttribute('alt', '');
+}
+
+function renderCanvas() {
+  const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
+  const newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList, `c${(+(canvasList.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`);
+  newElement.setAttribute('width', '580');
+  newElement.setAttribute('height', '580');
+  // eslint-disable-next-line prefer-destructuring
+  const current = canvasList.getElementsByClassName('current')[0];
+  current.className = current.className.replace(' current', '');
+  newElement.classList += ' current';
+  draw(newElement);
+}
 
 function layerEventController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
-  const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   document.getElementById('add-layer').addEventListener('click', () => {
-    let newElement = addNewElement('div', 'main__workspace__layers__layer', addNewElement('li', 'main__workspace__layers__layer_wrapper', layersList));
-    let current = layersList.getElementsByClassName('current')[0];
-    current.className = current.className.replace(' current', '');
-    newElement.classList += ' current';
-    newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList);
-    newElement.setAttribute('width', '580');
-    newElement.setAttribute('height', '580');
-    // eslint-disable-next-line prefer-destructuring
-    current = canvasList.getElementsByClassName('current')[0];
-    current.className = current.className.replace(' current', '');
-    newElement.classList += ' current';
-    draw(newElement);
+    renderLayer();
+    renderCanvas();
   });
   layersList.addEventListener('click', (event) => {
-    const layer = event.target;
-    if (layer.classList.contains('main__workspace__layers__layer')) {
-      const current = layersList.getElementsByClassName('current')[0];
-      const layersCollection = layersList.children;
-      for (let i = 0; i < layersCollection.length; i += 1) {
-        if (layersCollection[i].children[0].classList.contains('current')) {
-          canvasList.children[i].className = canvasList.children[i].className.replace(' current', '');
-        }
-      }
-      layer.classList += ' current';
-      current.className = current.className.replace(' current', '');
-      for (let i = 0; i < layersCollection.length; i += 1) {
-        if (layersCollection[i].children[0].classList.contains('current')) {
-          canvasList.children[i].classList += ' current';
-        }
-      }
+    const eventElement = event.target;
+    if (eventElement.classList.contains('main__workspace__layers__layer')) {
+      const currentLayer = layersList.getElementsByClassName('current')[0];
+      const currentId = currentLayer.getAttribute('id').slice(1);
+      const currentCanvas = document.getElementById(`c${currentId}`);
+      currentLayer.className = currentLayer.className.replace(' current', '');
+      currentCanvas.className = currentCanvas.className.replace(' current', '');
+
+      const eventId = eventElement.parentElement.getAttribute('id').slice(1);
+      const nextCanvas = document.getElementById(`c${eventId}`);
+      eventElement.parentElement.classList += ' current';
+      nextCanvas.classList += ' current';
     }
   });
 }
