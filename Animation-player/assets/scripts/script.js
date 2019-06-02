@@ -2,9 +2,6 @@ const buttonContainer = document.getElementsByClassName('main__workspace__tools_
 
 const buttons = buttonContainer[0].getElementsByClassName('main__workspace__tools__items__tool');
 
-// const canvas = document.getElementsByClassName('main__workspace__canvas');
-
-// const canvasCells = canvas[0].getElementsByClassName('main__workspace__canvas__item');
 
 const reset = document.getElementsByClassName('footer_button_reset')[0];
 
@@ -66,7 +63,7 @@ function chooseColor() {
   return document.body.addEventListener('mouseup', chooseColorHandler);
 }
 
-function draw(value) {
+function canvasController(value) {
   const canvas = value;
   const canvasContext = canvas.getContext('2d');
   canvasContext.scale(10, 10);
@@ -134,7 +131,7 @@ function renderCanvas(copiedElemId) {
     const context = newElement.getContext('2d');
     context.drawImage(document.getElementById(copiedElemId), 0, 0);
   }
-  draw(newElement);
+  canvasController(newElement);
 }
 
 function layerEventController() {
@@ -255,7 +252,7 @@ function run() {
   setActive();
 
   chooseColor();
-  draw(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
+  canvasController(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
   layerEventController();
   setAdditionalInterface();
 }
