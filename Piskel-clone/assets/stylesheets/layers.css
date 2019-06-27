@@ -1,6 +1,7 @@
 .main__workspace__layers_wrapper{
-    grid-area: layers;
+    grid-area: frames;
     max-height: 100%;
+    margin: 2% 0;
     display: flex;
     flex-direction: column;
     align-items: center;

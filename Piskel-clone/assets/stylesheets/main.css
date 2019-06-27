@@ -1,0 +1,22 @@
+@import "tools.css";
+@import "colors.css";
+@import "layers.css";
+@import "canvas.css";
+
+.main{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.main__workspace{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 10% 10% 60% 10% 10%;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas:
+            "tools frames canvas preview preview"
+            "tools frames canvas layers layers"
+            "colors frames canvas options options";
+    background-color: rgba(93,244,228,0.3);
+    box-shadow: 0 0 20px 4px #5df4e4;
+}

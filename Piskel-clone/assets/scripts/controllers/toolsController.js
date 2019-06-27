@@ -3,11 +3,13 @@ import colorPickerController from './colorPickerController';
 
 export default function toolsController() {
   function setActiveByKeybind() {
+    KeyboardEvent.P = 'KeyP';
+    KeyboardEvent.E = 'KeyE';
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'p' || event.key === 'P' || event.key === 'з' || event.key === 'З') {
+      if (event.code === KeyboardEvent.P) {
         setActiveTool(0);
       }
-      if (event.key === 'e' || event.key === 'E' || event.key === 'у' || event.key === 'У') {
+      if (event.code === KeyboardEvent.E) {
         setActiveTool(1);
       }
     });
@@ -20,7 +22,6 @@ export default function toolsController() {
       });
     }
   }
-
   return (function () {
     setActiveByClick();
     setActiveByKeybind();

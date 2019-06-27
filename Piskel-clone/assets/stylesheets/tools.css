@@ -1,10 +1,6 @@
 .main__workspace__tools{
     grid-area: tools;
-}
-.main__workspace__tools__items_wrapper{
-    position: relative;
-    width: 80%;
-    margin: 20% auto 0;
+    margin: 2% 0;
 }
 .main__workspace__tools__items_wrapper:before{
     content:"";
@@ -12,14 +8,12 @@
     padding-top:100%;
 }
 .main__workspace__tools__items{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin: 50% 15%;
+    width: 70%;
     display: flex;
-    flex-direction: column;
-    list-style-type: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     background-color: rgba(93,244,228,0.3);
     box-shadow: 0 0 20px 4px #5df4e4;
@@ -33,25 +27,51 @@
     border-radius: 0 0 10px 10px;
 }
 .main__workspace__tools__items__tool{
-    width: 100%;
-    height: 25%;
+    position: relative;
+    width: 50%;
+    padding-top: 50%;
     display: flex;
+    justify-content: center;
     align-items: center;
     border-bottom: 1px solid rgba(93, 244, 228, 0.51);
 }
 .main__workspace__tools__items__tool_icon{
-    width: 10%;
-    margin: 10%;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
 }
 .main__workspace__tools__items__tool_button{
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 110%;
+    visibility: hidden;
+    height: 50%;
+    z-index: 5;
+    text-align: center;
+    border-radius: 5px;
     font-size: 1vw;
-    text-align: left;
     outline-style: none;
-    background: none;
-    border: none;
-    color: #09393E;
+    background-color: #ff95bdad;
+    color: #effffd;
+    white-space: nowrap;
+    padding: 5px;
+}
+.main__workspace__tools__items__tool::after{
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: -10%;
+    width: 10%;
+    border: 0.3vw solid transparent;
+    border-right-color: #ff95bdad;
+    visibility: hidden;
+}
+.main__workspace__tools__items__tool:hover > .main__workspace__tools__items__tool_button{
+    visibility: visible;
+}
+.main__workspace__tools__items__tool:hover::after{
+    visibility: visible;
 }
 .main__workspace__tools__items__tool:hover, .active{
     background-color: #5df4e4;
