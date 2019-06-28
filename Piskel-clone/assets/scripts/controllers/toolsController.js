@@ -3,14 +3,41 @@ import colorPickerController from './colorPickerController';
 
 export default function toolsController() {
   function setActiveByKeybind() {
-    KeyboardEvent.P = 'KeyP';
-    KeyboardEvent.E = 'KeyE';
     document.addEventListener('keydown', (event) => {
-      if (event.code === KeyboardEvent.P) {
-        setActiveTool(0);
-      }
-      if (event.code === KeyboardEvent.E) {
-        setActiveTool(1);
+      switch (event.code) {
+        case 'KeyP': {
+          setActiveTool(0);
+          break;
+        }
+        case 'KeyO': {
+          setActiveTool(1);
+          break;
+        }
+        case 'KeyB': {
+          setActiveTool(2);
+          break;
+        }
+        case 'KeyE': {
+          setActiveTool(3);
+          break;
+        }
+        case 'KeyR': {
+          setActiveTool(4);
+          break;
+        }
+        case 'KeyC': {
+          setActiveTool(5);
+          break;
+        }
+        case 'KeyL': {
+          setActiveTool(6);
+          break;
+        }
+        case 'KeyM': {
+          setActiveTool(7);
+          break;
+        }
+        default: break;
       }
     });
   }
