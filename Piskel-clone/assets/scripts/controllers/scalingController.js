@@ -13,8 +13,14 @@ export default function scalingController() {
       const nextScale = targetButton.id.slice(1);
       if (+currentScale < +nextScale) {
         rescaleCanvas(true);
+        if (+currentScale * 2 < +nextScale) {
+          rescaleCanvas(true);
+        }
       } else {
         rescaleCanvas(false);
+        if (+currentScale > +nextScale * 2) {
+          rescaleCanvas(false);
+        }
       }
       wrapper.setAttribute('scale', nextScale);
     }
