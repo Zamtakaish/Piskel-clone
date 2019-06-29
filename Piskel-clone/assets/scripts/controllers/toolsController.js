@@ -43,7 +43,7 @@ export default function toolsController() {
   }
 
   function setActiveByClick() {
-    for (let i = 0; i < 2; i += 1) {
+    for (let i = 0; i < 8; i += 1) {
       document.getElementsByClassName('main__workspace__tools__items__tool')[i].addEventListener('click', () => {
         setActiveTool(i);
       });

@@ -9,7 +9,7 @@ export default function canvasController(value) {
   canvasContext.scale(scaleSize, scaleSize);
   canvas.addEventListener('mousedown', () => {
     canvas.className += ' active';
-    canvasContext.fillStyle = document.getElementById('curr-color').getAttribute('style').slice(18).slice(0, -1);
+    canvasContext.fillStyle = document.getElementById('curr-color').style.backgroundColor;
   });
   canvas.addEventListener('mouseup', () => {
     canvas.className = canvas.className.replace(' active', '');

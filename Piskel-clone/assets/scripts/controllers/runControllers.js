@@ -6,6 +6,7 @@ import animationController from './animationController';
 import fullscreenController from './fullscreenController';
 import fpsController from './fpsController';
 import eraserController from './eraserController';
+import bucketController from './bucketController';
 
 export default function runControllers() {
   toolsController();
