@@ -21,7 +21,7 @@
     right: 0;
     background-color: rgba(93,244,228,0.3);
     box-shadow: 0 0 20px 4px #5df4e4;
-    visibility: hidden;
+/*    visibility: hidden;*/
 }
 .main__workspace__canvas__item_wrapper{
     position: relative;
