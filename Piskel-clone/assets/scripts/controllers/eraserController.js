@@ -6,8 +6,6 @@ export default function eraserController() {
   const canvasContext = canvas.getContext('2d');
   const scaleSize = Math.floor(getComputedStyle(workspace).width.slice(0, -2) / 32);
 
-    canvasContext.fillStyle = document.getElementById('curr-color').getAttribute('style').slice(18).slice(0, -1);
-
   function eraseHandler(event) {
     if (buttonContainer.getElementsByClassName('active')[0] === buttons[3]) {
       if (canvas.classList.contains('active')) {
@@ -15,5 +13,5 @@ export default function eraserController() {
       }
     }
   }
-  return workspace.addEventListener('mousemove', eraseHandler);
+  return canvas.addEventListener('mousemove', eraseHandler);
 }
