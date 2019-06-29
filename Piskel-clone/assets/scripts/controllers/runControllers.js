@@ -9,6 +9,7 @@ import eraserController from './eraserController';
 import bucketController from './bucketController';
 import previewController from './previewController';
 import scalingController from './scalingController';
+import swapColorsController from './swapColorsController';
 
 export default function runControllers() {
   toolsController();
@@ -21,4 +22,5 @@ export default function runControllers() {
   animationController();
   fpsController();
   fullscreenController();
+  swapColorsController();
 }
