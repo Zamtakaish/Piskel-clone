@@ -2,6 +2,8 @@
 @import "colors.css";
 @import "layers.css";
 @import "canvas.css";
+@import "preview.css";
+@import "size-scales.css";
 
 .main{
     max-width: 1400px;
@@ -12,7 +14,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 10% 10% 60% 10% 10%;
-    grid-template-rows: 20% 50% 30%;
+    grid-template-rows: 30% 40% 30%;
     grid-template-areas:
             "tools frames canvas preview preview"
             "tools frames canvas layers layers"
