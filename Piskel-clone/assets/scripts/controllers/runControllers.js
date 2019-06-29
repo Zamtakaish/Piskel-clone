@@ -10,6 +10,7 @@ import bucketController from './bucketController';
 import previewController from './previewController';
 import scalingController from './scalingController';
 import swapColorsController from './swapColorsController';
+import moveToolController from './moveToolController';
 
 export default function runControllers() {
   toolsController();
@@ -17,10 +18,11 @@ export default function runControllers() {
   layerEventController();
   canvasController(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
   localStorageController();
-    previewController();
+  previewController();
   scalingController();
   animationController();
   fpsController();
   fullscreenController();
   swapColorsController();
+  moveToolController();
 }

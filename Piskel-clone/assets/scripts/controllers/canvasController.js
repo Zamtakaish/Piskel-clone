@@ -27,14 +27,9 @@ export default function canvasController(value) {
   });
   canvas.addEventListener('mousemove', (event) => {
     const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
-    const buttons = document.getElementsByClassName('main__workspace__tools__items__tool')[0];
-    if ((canvas.classList.contains('active')) && (buttonContainer.getElementsByClassName('active')[0] === buttons)) {
+    const buttons = document.getElementsByClassName('main__workspace__tools__items__tool');
+    if ((canvas.classList.contains('active')) && (buttonContainer.getElementsByClassName('active')[0] === buttons[0])) {
       canvasContext.fillRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
     }
   });
-/*  window.addEventListener('resize', () => {
-      console.log('resized');
-    canvas.width = Math.floor(getComputedStyle(workspace).width.slice(0, -2) / 32) * 32;
-    canvas.height = Math.floor(getComputedStyle(workspace).width.slice(0, -2) / 32) * 32;
-  }); */
 }

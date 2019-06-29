@@ -1,5 +1,3 @@
-import canvasController from '../canvasController';
-
 export default function rescaleCanvas(direction) {
   const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
@@ -7,8 +5,6 @@ export default function rescaleCanvas(direction) {
   const canvasContext = canvas.getContext('2d');
   const tempContext = canvasTemp.getContext('2d');
   const previewContext = preview.getContext('2d');
-  canvasTemp.width = canvas.width;
-  canvasTemp.height = canvas.height;
   tempContext.imageSmoothingEnabled = false;
   tempContext.mozImageSmoothingEnabled = false;
   tempContext.webkitImageSmoothingEnabled = false;
