@@ -1,0 +1,6 @@
+.main_landing__preview__screenshot{
+    width: 400px;
+}
+.body_landing{
+    background: linear-gradient(to right, #2d2d2d 0%,#1c4f96 30%,#21c8ce 50%,#1c4f96 70%,#2d2d2d 100%);
+}

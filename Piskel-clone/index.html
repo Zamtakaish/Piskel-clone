@@ -2,106 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Palette</title>
-    <link rel="stylesheet" href="assets/stylesheets/style.css">
+    <title>Piskel Clone</title>
 </head>
-<body>
-<header class="header">
-    <h1 class="header__title">Animation Player by Zamtakaish</h1>
+<body class="body_landing">
+<header class="header_landing">
+    <h1 class="header_landing__title">Piskel App clone</h1>
 </header>
-<main class="main">
-    <article class="main__workspace">
-        <section class="main__workspace__tools">
-                <ul class="main__workspace__tools__items">
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/pen-icon.svg" alt="paintbucket_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_bucket-fill">Pen tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/eye-dropper-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Color Picker tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/paint-bucket-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Paint Bucket tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/eraser-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Eraser tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/rectangle-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Rectangle tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/ellipse-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Ellipce tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/line-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Stroke Line tool</div>
-                    </li>
-                    <li class="main__workspace__tools__items__tool">
-                        <img src="assets/pictures/move-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button main__workspace__tools__items__tool_button_eye-dropper">Move tool</div>
-                    </li>
-                </ul>
+<main class="main_landing">
+    <article class="main_landing__content">
+        <section class="main_landing__content__description">
+            <p class="main_landing__content__description__about">This is the final project of stage 2 in Rolling Scopes School. It represents clone of
+            original <a href="https://www.piskelapp.com/">Piskel App</a> -- tool for creating custom animated pixel images.</p>
         </section>
-        <section class="main__workspace__colors">
-                <ul class="main__workspace__colors__palette">
-                    <li class="main__workspace__colors__palette__item main__workspace__colors__palette__item_current-color" id="curr-color"></li>
-                    <li class="main__workspace__colors__palette__item main__workspace__colors__palette__item__previous-color" id="prev-color"></li>
+        <section class="main_landing__preview">
+            <p class="main_landing__preview__description">Original Piskel App:</p>
+            <img src="assets/pictures/piskel-screenshot.png" alt="" class="main_landing__preview__screenshot">
+            <p class="main_landing__preview__description">Piskel Clone</p>
+            <img src="assets/pictures/app-screenshot.png" alt="" class="main_landing__preview__screenshot">
+        </section>
+        <section class="main_landing__to-app">
+            <a href="app.html" class="main_landing__to-app_link">To the app!</a>
+        </section>
+        <section class="main_landing__author_wrapper">
+            <div class="main_landing__author">Author: Anton Ziuzikov
+                <p class="main_landing__author__contacts_title">Contacts:</p>
+                <ul class="main_landing__author__contacts">
+                    <li class="main_landing__author__contacts__item"><a href="">Discord</a></li>
+                    <li class="main_landing__author__contacts__item"><a href="https://t.me/zamtakaish">Telegram</a></li>
                 </ul>
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sync-alt" class="main__workspace__colors__swap-button svg-inline--fa fa-sync-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path id="swap-button" fill="#0A393E" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path>
-            </svg>
-            <div class="main__workspace__colors__color-selection">
-                <div class="main__workspace__colors__color-selection_val">
-                    <div class="main__workspace__colors__color-selection_sat"></div>
-                </div>
-                <div class="main__workspace__colors__color-selection_chroma"></div>
             </div>
-        </section>
-        <section class="main__workspace__layers_wrapper">
-            <ul class="main__workspace__layers">
-                <li class="main__workspace__layers__layer_wrapper current" id="l1">
-                    <div class="main__workspace__layers__layer">
-                        <div class="main__workspace__layers__layer__make-copy">
-                            <img class="main__workspace__layers__layer__make-copy_icon" src="assets/pictures/copy-icon.svg" alt="">
-                        </div>
-                        <div class="main__workspace__layers__layer__delete">
-                            <img class="main__workspace__layers__layer__delete_icon" src="assets/pictures/trash-icon.svg" alt="">
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="main__workspace__layers_wrapper__add-layer_button" id="add-layer">Add new layer</div>
-        </section>
-        <section class="main__workspace__canvas_wrapper">
-            <canvas class="main__workspace__canvas_temp main__workspace__canvas">
-            </canvas>
-            <canvas class="main__workspace__canvas current" id="c1">
-            </canvas>
-        </section>
-        <section class="main__workspace__preview_wrapper">
-            <canvas class="main__workspace__preview" >
-            </canvas>
-        </section>
-        <section class="main__workspace__size-scale_wrapper">
-            <ul class="main__workspace__size-scale" scale="32">
-                <li class="main__workspace__size-scale__item current" id="x32">32x32</li>
-                <li class="main__workspace__size-scale__item" id="x64">64x64</li>
-                <li class="main__workspace__size-scale__item" id="x128">128x128</li>
-            </ul>
         </section>
     </article>
 </main>
-<footer class="footer">
-    <button class="footer_button_reset">Reset</button>
-    <button class="footer_button_animate" animated="0">Run animation</button>
-    <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
-           min="1" max="24" value="1" step="1">
-    <button class="footer_button_fullscreen">Fullscreen</button>
+<footer class="footer_landing">
+    <div class="footer_landing__copyright">Developed by Zamtakaish for <a href="https://rollingscopes.com/">Rolling Scopes School</a>. Based on <a href="https://www.piskelapp.com/">Piskel App</a>.</div>
 </footer>
 <script src="./dist/bundle.js"></script>
 </body>
