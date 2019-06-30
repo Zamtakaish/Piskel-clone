@@ -53,6 +53,7 @@
     border: 2px solid #0A393E;
     background-color: #000000;
     box-shadow: 0 0 20px 4px #5df4e4;
+    visibility: hidden;
 }
 .main__workspace__colors__color-selection_val{
     width: 80%;

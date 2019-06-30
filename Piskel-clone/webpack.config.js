@@ -27,13 +27,15 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'fonts/',
+            outputPath: './assets/fonts/',
           },
         }],
       },
       {
         test: /\.worker\.js$/,
-        use: { loader: 'worker-loader' },
+        use: [{
+          loader: 'worker-loader',
+        }],
       },
     ],
   },
