@@ -4,6 +4,7 @@ import canvasController from '../controllers/canvasController';
 export default function renderCanvas(copiedElemId) {
   const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   const current = canvasList.getElementsByClassName('current')[0];
+    const copiedElement = document.getElementById(copiedElemId);
   let id;
   if (!current) {
     id = 'c1';
@@ -12,12 +13,16 @@ export default function renderCanvas(copiedElemId) {
     current.className = current.className.replace(' current', '');
   }
   const newElement = addNewElement('canvas', 'main__workspace__canvas', canvasList, id);
-  newElement.setAttribute('width', '580');
-  newElement.setAttribute('height', '580');
   newElement.classList += ' current';
+  newElement.width = copiedElement.width;
+  newElement.height = copiedElement.height;
   if (arguments.length) {
     const context = newElement.getContext('2d');
-    context.drawImage(document.getElementById(copiedElemId), 0, 0);
+
+    //context.drawImage(document.getElementById(copiedElemId), 0, 0);
+      console.log(copiedElement.getContext('2d').getImageData(0,0, copiedElement.width, copiedElement.width).data);
+      context.clearRect(0,0, copiedElement.width,copiedElement.width);
+      context.drawImage(copiedElement, 0, 0, copiedElement.width, copiedElement.width, 0, 0, newElement.width, newElement.height);
   }
   canvasController(newElement);
 }
