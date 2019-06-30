@@ -1,4 +1,5 @@
 import checkButton from './misc/checkButton';
+import animationController from "./animationController";
 
 export default function canvasController(value) {
   const canvas = value;

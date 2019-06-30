@@ -1,11 +1,18 @@
 .main__workspace__preview_wrapper{
     grid-area: preview;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .main__workspace__preview{
     background-color: rgba(93,244,228,0.3);
     box-shadow: 0 0 20px 4px #5df4e4;
+}
+.main__workspace__preview_img{
+    position: absolute;
+    top: 300px;
+    visibility: hidden;
 }
 
