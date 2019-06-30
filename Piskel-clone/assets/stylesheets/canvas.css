@@ -19,9 +19,13 @@
     left: 0;
     bottom: 0;
     right: 0;
+    visibility: hidden;
+    background-color: transparent;
+}
+.main__workspace__canvas_temp{
+    visibility: visible;
     background-color: rgba(93,244,228,0.3);
     box-shadow: 0 0 20px 4px #5df4e4;
-    visibility: hidden;
 }
 .main__workspace__canvas__item_wrapper{
     position: relative;

@@ -18,11 +18,13 @@ export default function moveToolController() {
   tempContext.msImageSmoothingEnabled = false;
 
   canvas.addEventListener('mousedown', (event) => {
-    startX = event.offsetX;
-    startY = event.offsetY;
+      if (checkButton(7)){
+          startX = event.offsetX;
+          startY = event.offsetY;
+      }
   });
   canvas.addEventListener('mousemove', (event) => {
-    if (checkButton(7)) {
+    if ((checkButton(7)) && (canvas.classList.contains('active'))) {
       if (Math.abs(event.offsetX - startX) > stepScale) {
         if (Math.floor(event.offsetX - startX) > 0) {
           tempContext.drawImage(canvas, 0, 0, canvas.width - stepScale, canvas.height, stepScale, 0, canvas.width, canvas.height);

@@ -26,5 +26,5 @@ export default function runControllers() {
   fullscreenController();
   swapColorsController();
   moveToolController();
-  rectangleController()
+  rectangleController();
 }
