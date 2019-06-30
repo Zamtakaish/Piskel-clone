@@ -1,11 +1,13 @@
 import renderLayer from '../rendering/renderLayer';
 import renderCanvas from '../rendering/renderCanvas';
+import renderPreview from '../rendering/renderPreview';
 
 export default function layerEventController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
   document.getElementById('add-layer').addEventListener('click', () => {
     renderLayer();
     renderCanvas();
+      renderPreview();
   });
   layersList.addEventListener('click', (event) => {
     const eventElement = event.target;
@@ -26,12 +28,14 @@ export default function layerEventController() {
       const nextCanvas = document.getElementById(`c${eventId}`);
       eventElement.parentElement.classList += ' current';
       nextCanvas.classList += ' current';
+      renderPreview();
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__make-copy_icon')) {
       const copiedElemId = `c${event.target.parentElement.parentElement.parentElement.getAttribute('id').slice(1)}`;
       renderLayer();
       renderCanvas(copiedElemId);
+      renderPreview();
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__delete_icon')) {
