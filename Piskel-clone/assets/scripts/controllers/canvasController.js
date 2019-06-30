@@ -1,3 +1,5 @@
+import checkButton from './misc/checkButton';
+
 export default function canvasController(value) {
   const canvas = value;
   const canvasContext = canvas.getContext('2d');
@@ -26,9 +28,7 @@ export default function canvasController(value) {
     canvas.className = canvas.className.replace(' active', '');
   });
   canvas.addEventListener('mousemove', (event) => {
-    const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
-    const buttons = document.getElementsByClassName('main__workspace__tools__items__tool');
-    if ((canvas.classList.contains('active')) && (buttonContainer.getElementsByClassName('active')[0] === buttons[0])) {
+    if (checkButton(0)) {
       canvasContext.fillRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
     }
   });

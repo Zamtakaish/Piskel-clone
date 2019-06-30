@@ -1,6 +1,6 @@
+import checkButton from './misc/checkButton';
+
 export default function moveToolController() {
-  const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
-  const buttons = document.getElementsByClassName('main__workspace__tools__items__tool');
   const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
   const canvasContext = canvas.getContext('2d');
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
@@ -22,7 +22,7 @@ export default function moveToolController() {
     startY = event.offsetY;
   });
   canvas.addEventListener('mousemove', (event) => {
-    if ((buttonContainer.getElementsByClassName('active')[0] === buttons[7]) && (canvas.classList.contains('active'))) {
+    if (checkButton(7)) {
       if (Math.abs(event.offsetX - startX) > stepScale) {
         if (Math.floor(event.offsetX - startX) > 0) {
           tempContext.drawImage(canvas, 0, 0, canvas.width - stepScale, canvas.height, stepScale, 0, canvas.width, canvas.height);

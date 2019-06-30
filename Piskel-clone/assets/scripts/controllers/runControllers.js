@@ -11,6 +11,7 @@ import previewController from './previewController';
 import scalingController from './scalingController';
 import swapColorsController from './swapColorsController';
 import moveToolController from './moveToolController';
+import rectangleController from './rectangleController';
 
 export default function runControllers() {
   toolsController();
@@ -25,4 +26,5 @@ export default function runControllers() {
   fullscreenController();
   swapColorsController();
   moveToolController();
+  rectangleController()
 }
