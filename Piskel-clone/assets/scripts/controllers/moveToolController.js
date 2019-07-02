@@ -18,10 +18,10 @@ export default function moveToolController() {
   tempContext.msImageSmoothingEnabled = false;
 
   canvas.addEventListener('mousedown', (event) => {
-      if (checkButton(7)){
-          startX = event.offsetX;
-          startY = event.offsetY;
-      }
+    if (checkButton(7)) {
+      startX = event.offsetX;
+      startY = event.offsetY;
+    }
   });
   canvas.addEventListener('mousemove', (event) => {
     if ((checkButton(7)) && (canvas.classList.contains('active'))) {

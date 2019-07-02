@@ -19,10 +19,7 @@ export default function renderCanvas(copiedElemId) {
   newElement.width = workspaceSize;
   newElement.height = workspaceSize;
   const newElementContext = newElement.getContext('2d');
-  // context.drawImage(document.getElementById(copiedElemId), 0, 0);
-  //context.clearRect(0, 0, workspaceSize.width, workspaceSize.width);
   if (arguments.length) {
-      console.log(copiedElement.getContext('2d').getImageData(0, 0, workspaceSize, workspaceSize).data);
     newElementContext.drawImage(copiedElement, 0, 0, workspaceSize, workspaceSize, 0, 0, newElement.width, newElement.height);
   }
 

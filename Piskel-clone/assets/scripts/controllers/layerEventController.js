@@ -1,6 +1,7 @@
 import renderLayer from '../rendering/renderLayer';
 import renderCanvas from '../rendering/renderCanvas';
 import renderPreview from '../rendering/renderPreview';
+import renderAnimation from '../rendering/renderAnimation';
 
 export default function layerEventController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
@@ -12,6 +13,7 @@ export default function layerEventController() {
   layersList.addEventListener('click', (event) => {
     const eventElement = event.target;
     const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
+    const preview = document.getElementsByClassName('main__workspace__preview_wrapper')[0];
     if (eventElement.classList.contains('main__workspace__layers__layer')) {
       const currentLayer = layersList.getElementsByClassName('current')[0];
       let currentId;
@@ -28,7 +30,12 @@ export default function layerEventController() {
       const nextCanvas = document.getElementById(`c${eventId}`);
       eventElement.parentElement.classList += ' current';
       nextCanvas.classList += ' current';
-      renderPreview();
+      const currentPreview = document.getElementsByClassName('main__workspace__preview_wrapper')[0].getElementsByClassName('current')[0];
+      console.log(currentPreview);
+      currentPreview.className = currentPreview.className.replace(' current', '');
+      const newPreview = document.getElementById(`p${eventId}`);
+        console.log(newPreview);
+      newPreview.classList += ' current';
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__make-copy_icon')) {
@@ -43,10 +50,12 @@ export default function layerEventController() {
       const elementId = deletedEl.getAttribute('id').slice(1);
       layersList.removeChild(deletedEl);
       canvas.removeChild(document.getElementById(`c${elementId}`));
+      preview.removeChild(document.getElementById(`p${elementId}`));
       layersList.firstElementChild.classList += ' current';
       const newId = `c${layersList.firstElementChild.getAttribute('id').slice(1)}`;
       document.getElementById(newId).classList += ' current';
-      renderPreview();
+      document.getElementsByClassName('main__workspace__preview')[0].classList += ' current';
+      renderAnimation();
     }
   });
 }

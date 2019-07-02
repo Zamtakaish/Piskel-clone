@@ -1,8 +1,6 @@
 import toolsController from './toolsController';
 import layerEventController from './layerEventController';
-import canvasController from './canvasController';
 import localStorageController from './localStorageController';
-import animationController from './animationController';
 import fullscreenController from './fullscreenController';
 import fpsController from './fpsController';
 import eraserController from './eraserController';
@@ -15,14 +13,13 @@ import rectangleController from './rectangleController';
 import workspaceInit from '../rendering/workspaceInit';
 
 export default function runControllers() {
-    workspaceInit();
+  workspaceInit();
   toolsController();
   eraserController();
   layerEventController();
   localStorageController();
   previewController();
   scalingController();
-  animationController();
   fpsController();
   fullscreenController();
   swapColorsController();

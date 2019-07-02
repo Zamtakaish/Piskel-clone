@@ -4,7 +4,7 @@ export default function canvasController(value) {
   const canvas = value;
   const canvasContext = canvas.getContext('2d');
   const canvasSize = canvas.width;
-    const frameScale = +document.getElementsByClassName('main__workspace__size-scale')[0].getAttribute('scale');
+  const frameScale = +document.getElementsByClassName('main__workspace__size-scale')[0].getAttribute('scale');
   let scaleSize;
 
   function setCanvasScale(currentScale) {
@@ -27,7 +27,6 @@ export default function canvasController(value) {
   canvas.addEventListener('mousemove', (event) => {
     if ((checkButton(0)) && (canvas.classList.contains('active'))) {
       canvasContext.fillRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
-      console.log(event.offsetX, event.offsetY);
     }
   });
 }

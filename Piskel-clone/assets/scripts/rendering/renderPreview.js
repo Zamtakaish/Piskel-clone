@@ -1,7 +1,21 @@
+import addNewElement from './addNewElement';
+import updatePreview from './updatePreview';
+
 export default function renderPreview() {
-  const canvasPreview = document.getElementsByClassName('main__workspace__preview')[0];
-  const canvasPreviewContext = canvasPreview.getContext('2d');
-  const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
-  canvasPreviewContext.clearRect(0, 0, canvasPreview.width, canvasPreview.height);
-  canvasPreviewContext.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvasPreview.width, canvasPreview.height);
+  const parent = document.getElementsByClassName('main__workspace__preview_wrapper')[0];
+  const current = parent.getElementsByClassName('current')[0];
+  let id;
+  if (!current) {
+    id = 'p1';
+  } else {
+    id = `p${(+(parent.lastElementChild.getAttribute('id').slice(1)) + 1).toString()}`;
+    current.className = current.className.replace(' current', '');
+  }
+  const newElement = addNewElement('canvas', 'main__workspace__preview', parent, id);
+  newElement.classList += ' current';
+
+  const previewSize = Math.floor(getComputedStyle(parent).height.slice(0, -2) / 32) * 32 * 0.8;
+  newElement.width = previewSize;
+  newElement.height = previewSize;
+  updatePreview();
 }
