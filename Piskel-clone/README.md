@@ -8,6 +8,7 @@
 | Jun 27 | Jun 27 | 10h | reworking project to final layout |
 | Jun 28 | Jun 29 | 12h | several tools implementation |
 | Jun 29 | Jun 30 | 11h | scaling canvas implementation, reworking tools and adding new |
-| Jun 30 | Jul 1 | 14h | add preview animation adn fulscreen mode, implement landing page | 
+| Jun 30 | Jul 1 | 14h | add preview animation adn fulscreen mode, implement landing page |
+| Jun 2 | Jul 3 | 6h | correct some tools behaviour, animation show, implement download |
 
-### Total: 71h.
+### Total: 77h.
