@@ -16,6 +16,7 @@ export default function runControllers() {
   workspaceInit();
   toolsController();
   eraserController();
+    bucketController();
   layerEventController();
   localStorageController();
   previewController();

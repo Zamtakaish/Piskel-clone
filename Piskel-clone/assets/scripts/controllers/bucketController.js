@@ -76,11 +76,15 @@ export default function eraserController() {
 
       canvasContext.fillStyle = fillColor;
     if (buttonContainer.getElementsByClassName('active')[0] === buttons[2]) {
-      if (fillColor !== eventPixelColor) {
+        const currCanvas = workspace.getElementsByClassName('current')[0];
+        const currContext = currCanvas.getContext('2d');
+        currContext.fillStyle = document.getElementById('curr-color').style.backgroundColor;
+        currContext.fillRect(0,0, canvas.width, canvas.width);
+/*      if (fillColor !== eventPixelColor) {
         fillPixel();
-      }
+      }*/
     }
   }
 
-  return workspace.addEventListener('click', bucketHandler);
+  return workspace.addEventListener('mousedown', bucketHandler);
 }
