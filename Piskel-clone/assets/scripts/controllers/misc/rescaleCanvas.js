@@ -1,5 +1,4 @@
-export default function rescaleCanvas(direction) {
-  const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
+export default function rescaleCanvas(canvas, direction) {
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
   const preview = document.getElementsByClassName('main__workspace__preview')[0];
   const canvasContext = canvas.getContext('2d');

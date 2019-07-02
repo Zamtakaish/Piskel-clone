@@ -31,10 +31,8 @@ export default function layerEventController() {
       eventElement.parentElement.classList += ' current';
       nextCanvas.classList += ' current';
       const currentPreview = document.getElementsByClassName('main__workspace__preview_wrapper')[0].getElementsByClassName('current')[0];
-      console.log(currentPreview);
       currentPreview.className = currentPreview.className.replace(' current', '');
       const newPreview = document.getElementById(`p${eventId}`);
-        console.log(newPreview);
       newPreview.classList += ' current';
     }
 

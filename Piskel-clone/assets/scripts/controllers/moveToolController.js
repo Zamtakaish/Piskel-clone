@@ -1,12 +1,11 @@
 import checkButton from './misc/checkButton';
 
 export default function moveToolController() {
-  const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
-  const canvasContext = canvas.getContext('2d');
+  const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
   const tempContext = canvasTemp.getContext('2d');
   const frameScale = +document.getElementsByClassName('main__workspace__size-scale')[0].getAttribute('scale');
-  const stepScale = canvas.width / frameScale;
+  const stepScale = canvasWrapper.getElementsByClassName('current')[0].width / frameScale;
   const preview = document.getElementsByClassName('main__workspace__preview')[0];
   const previewContext = preview.getContext('2d');
 
@@ -17,13 +16,15 @@ export default function moveToolController() {
   tempContext.webkitImageSmoothingEnabled = false;
   tempContext.msImageSmoothingEnabled = false;
 
-  canvas.addEventListener('mousedown', (event) => {
+  canvasWrapper.addEventListener('mousedown', (event) => {
     if (checkButton(7)) {
       startX = event.offsetX;
       startY = event.offsetY;
     }
   });
-  canvas.addEventListener('mousemove', (event) => {
+  canvasWrapper.addEventListener('mousemove', (event) => {
+    const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
+    const canvasContext = canvas.getContext('2d');
     if ((checkButton(7)) && (canvas.classList.contains('active'))) {
       if (Math.abs(event.offsetX - startX) > stepScale) {
         if (Math.floor(event.offsetX - startX) > 0) {
