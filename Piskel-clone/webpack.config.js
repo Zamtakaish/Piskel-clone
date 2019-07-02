@@ -13,11 +13,27 @@ module.exports = {
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
-        test: /\.(png|jpe?g|gif|jpg|cur)$/,
+        test: /\.(png|jpe?g|gif|jpg)$/,
         use: [
           {
             loader: 'file-loader',
-            options: {},
+            options: {
+              name: '[name].[ext]',
+              outputPath: './assets/pictures/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(cur)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './assets/pictures/cursor',
+              limit: 8192,
+            },
           },
         ],
       },

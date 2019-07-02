@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>New Piskel</title>
 </head>
-<body style="background: url(assets/pictures/background.jpg);">
+<body>
 <header class="header">
     <h1 class="header__title">New Piskel</h1>
 </header>
@@ -63,29 +63,15 @@
         </section>
         <section class="main__workspace__layers_wrapper">
             <ul class="main__workspace__layers">
-                <li class="main__workspace__layers__layer_wrapper current" id="l1">
-                    <div class="main__workspace__layers__layer">
-                        <div class="main__workspace__layers__layer__make-copy">
-                            <img class="main__workspace__layers__layer__make-copy_icon" src="assets/pictures/copy-icon.svg" alt="">
-                        </div>
-                        <div class="main__workspace__layers__layer__delete">
-                            <img class="main__workspace__layers__layer__delete_icon" src="assets/pictures/trash-icon.svg" alt="">
-                        </div>
-                    </div>
-                </li>
             </ul>
             <div class="main__workspace__layers_wrapper__add-layer_button" id="add-layer">Add new frame</div>
         </section>
         <section class="main__workspace__canvas_wrapper">
             <canvas class="main__workspace__canvas_temp main__workspace__canvas">
             </canvas>
-            <canvas class="main__workspace__canvas current" id="c1" style="cursor: url(assets/pictures/cursor/pencil2.cur), default;">
-            </canvas>
         </section>
         <section class="main__workspace__preview_wrapper">
-            <canvas class="main__workspace__preview" >
-            </canvas>
-            <img src="" alt="nothing" class="main__workspace__preview main__workspace__preview_img">
+            <img src="" alt="nothing" class="main__workspace__preview__animation_img">
         </section>
         <section class="main__workspace__size-scale_wrapper">
             <ul class="main__workspace__size-scale" scale="32">
@@ -98,7 +84,7 @@
 </main>
 <footer class="footer">
     <button class="footer_button_reset">Reset</button>
-    <button class="footer_button_animate" animated="0">Run animation</button>
+    <button class="footer_button_download" animated="0">Download</button>
     <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
            min="1" max="24" value="1" step="1">
     <button class="footer_button_fullscreen">Fullscreen</button>

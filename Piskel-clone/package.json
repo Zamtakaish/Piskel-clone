@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "css-font-loader": "^0.2.6",
+    "downloadjs": "^1.4.7",
     "gif.js.optimized": "^1.0.1"
   }
 }

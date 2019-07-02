@@ -1,8 +1,6 @@
 import toolsController from './toolsController';
 import layerEventController from './layerEventController';
-import canvasController from './canvasController';
 import localStorageController from './localStorageController';
-import animationController from './animationController';
 import fullscreenController from './fullscreenController';
 import fpsController from './fpsController';
 import eraserController from './eraserController';
@@ -12,19 +10,22 @@ import scalingController from './scalingController';
 import swapColorsController from './swapColorsController';
 import moveToolController from './moveToolController';
 import rectangleController from './rectangleController';
+import workspaceInit from '../rendering/workspaceInit';
+import downloadController from './downloadController';
 
 export default function runControllers() {
+  workspaceInit();
   toolsController();
   eraserController();
+  bucketController();
   layerEventController();
-  canvasController(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
   localStorageController();
   previewController();
   scalingController();
-  animationController();
   fpsController();
   fullscreenController();
   swapColorsController();
   moveToolController();
   rectangleController();
+  downloadController();
 }

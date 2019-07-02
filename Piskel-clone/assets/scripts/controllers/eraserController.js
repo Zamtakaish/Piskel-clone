@@ -7,7 +7,7 @@ export default function eraserController() {
   const scaleSize = Math.floor(getComputedStyle(workspace).width.slice(0, -2) / 32);
 
   function eraseHandler(event) {
-    if (checkButton(3)) {
+    if (checkButton(3) && (canvas.classList.contains('active'))) {
       canvasContext.clearRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
     }
   }
