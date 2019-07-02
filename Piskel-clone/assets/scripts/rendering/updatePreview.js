@@ -27,6 +27,4 @@ export default function updatePreview() {
   previewContext.drawImage(canvasTemp, 0, 0, canvasTemp.width, canvasTemp.height, 0, 0, canvasPreview.width, canvasPreview.height);
   tempContext.clearRect(0, 0, canvas.width, canvas.height);
   renderAnimation();
-  // previewContext.clearRect(0, 0, canvasPreview.width, canvasPreview.height);
-  // previewContext.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvasPreview.width, canvasPreview.height);
 }

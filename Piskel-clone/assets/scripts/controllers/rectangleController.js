@@ -1,12 +1,12 @@
 import checkButton from './misc/checkButton';
+import updatePreview from '../rendering/updatePreview';
 
 export default function rectangleController() {
-  const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
-  const canvasContext = canvas.getContext('2d');
+  const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
   const tempContext = canvasTemp.getContext('2d');
   const frameScale = +document.getElementsByClassName('main__workspace__size-scale')[0].getAttribute('scale');
-  const scaleSize = canvas.width / frameScale;
+  const scaleSize = canvasWrapper.getElementsByClassName('current')[0].width / frameScale;
   let startX;
   let startY;
   let currentX;
@@ -37,7 +37,7 @@ export default function rectangleController() {
     }
   }
 
-  canvas.addEventListener('mousedown', (event) => {
+  canvasWrapper.addEventListener('mousedown', (event) => {
     if (checkButton(4)) {
       startX = Math.floor(event.offsetX / scaleSize);
       startY = Math.floor(event.offsetY / scaleSize);
@@ -50,7 +50,8 @@ export default function rectangleController() {
       tempContext.fillRect(currentX, currentY, 1, 1);
     }
   });
-  canvas.addEventListener('mousemove', (event) => {
+  canvasWrapper.addEventListener('mousemove', (event) => {
+    const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
     if ((checkButton(4)) && (canvas.classList.contains('active'))) {
       currentX = Math.floor(event.offsetX / scaleSize);
       currentY = Math.floor(event.offsetY / scaleSize);
@@ -61,15 +62,15 @@ export default function rectangleController() {
   });
   function render() {
     if (checkButton(4)) {
-      const canvasPreview = document.getElementsByClassName('main__workspace__preview')[0];
-      const canvasPreviewContext = canvasPreview.getContext('2d');
+      const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
+      const canvasContext = canvas.getContext('2d');
       canvasContext.strokeStyle = document.getElementById('curr-color').style.backgroundColor;
       drawRect(canvasContext);
       tempContext.restore();
       tempContext.clearRect(0, 0, canvas.width, canvas.height);
-      canvasPreviewContext.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvasPreview.width, canvasPreview.height);
+      updatePreview();
     }
   }
-  canvas.addEventListener('mouseup', render);
-  canvas.addEventListener('mouseleave', render);
+  canvasWrapper.addEventListener('mouseup', render);
+  canvasWrapper.addEventListener('mouseleave', render);
 }
