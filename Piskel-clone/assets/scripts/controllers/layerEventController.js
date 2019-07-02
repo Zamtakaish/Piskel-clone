@@ -7,7 +7,7 @@ export default function layerEventController() {
   document.getElementById('add-layer').addEventListener('click', () => {
     renderLayer();
     renderCanvas();
-      renderPreview();
+    renderPreview();
   });
   layersList.addEventListener('click', (event) => {
     const eventElement = event.target;
@@ -43,6 +43,10 @@ export default function layerEventController() {
       const elementId = deletedEl.getAttribute('id').slice(1);
       layersList.removeChild(deletedEl);
       canvas.removeChild(document.getElementById(`c${elementId}`));
+      layersList.firstElementChild.classList += ' current';
+      const newId = `c${layersList.firstElementChild.getAttribute('id').slice(1)}`;
+      document.getElementById(newId).classList += ' current';
+      renderPreview();
     }
   });
 }

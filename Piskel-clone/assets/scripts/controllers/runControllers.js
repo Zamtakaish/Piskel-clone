@@ -12,12 +12,13 @@ import scalingController from './scalingController';
 import swapColorsController from './swapColorsController';
 import moveToolController from './moveToolController';
 import rectangleController from './rectangleController';
+import workspaceInit from '../rendering/workspaceInit';
 
 export default function runControllers() {
+    workspaceInit();
   toolsController();
   eraserController();
   layerEventController();
-  canvasController(document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0]);
   localStorageController();
   previewController();
   scalingController();
