@@ -11,12 +11,13 @@ import swapColorsController from './swapColorsController';
 import moveToolController from './moveToolController';
 import rectangleController from './rectangleController';
 import workspaceInit from '../rendering/workspaceInit';
+import downloadController from './downloadController';
 
 export default function runControllers() {
   workspaceInit();
   toolsController();
   eraserController();
-    bucketController();
+  bucketController();
   layerEventController();
   localStorageController();
   previewController();
@@ -26,4 +27,5 @@ export default function runControllers() {
   swapColorsController();
   moveToolController();
   rectangleController();
+  downloadController();
 }

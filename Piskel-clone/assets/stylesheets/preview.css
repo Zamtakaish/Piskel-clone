@@ -12,9 +12,7 @@
     position: absolute;
     visibility: hidden;
 }
-.main__workspace__animation_img{
-    position: absolute;
-    top: 300px;
-    visibility: hidden;
+main__workspace__preview__animation_img{
+    background: red;
 }
 
