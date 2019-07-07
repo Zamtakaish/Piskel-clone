@@ -5,10 +5,11 @@ export default function rotateController() {
   const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
   const canvasTemp = document.getElementsByClassName('main__workspace__canvas_temp')[0];
   const tempContext = canvasTemp.getContext('2d');
-  const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
-  const canvasContext = canvas.getContext('2d');
+
 
   canvasWrapper.addEventListener('click', () => {
+    const canvas = document.getElementsByClassName('main__workspace__canvas_wrapper')[0].getElementsByClassName('current')[0];
+    const canvasContext = canvas.getContext('2d');
     if (checkButton(9)) {
       tempContext.save();
       tempContext.rotate((Math.PI / 180) * 90);
