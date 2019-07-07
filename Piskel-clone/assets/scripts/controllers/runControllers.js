@@ -12,6 +12,7 @@ import moveToolController from './moveToolController';
 import rectangleController from './rectangleController';
 import workspaceInit from '../rendering/workspaceInit';
 import downloadController from './downloadController';
+import rotateController from './rotateController';
 
 export default function runControllers() {
   workspaceInit();
@@ -28,4 +29,5 @@ export default function runControllers() {
   moveToolController();
   rectangleController();
   downloadController();
+  rotateController();
 }

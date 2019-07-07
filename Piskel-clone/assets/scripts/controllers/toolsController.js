@@ -37,13 +37,17 @@ export default function toolsController() {
           setActiveTool(7);
           break;
         }
+        case 'KeyT': {
+          setActiveTool(9);
+          break;
+        }
         default: break;
       }
     });
   }
 
   function setActiveByClick() {
-    for (let i = 0; i < 8; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       document.getElementsByClassName('main__workspace__tools__items__tool')[i].addEventListener('click', () => {
         setActiveTool(i);
       });
