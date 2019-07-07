@@ -37,6 +37,10 @@ export default function toolsController() {
           setActiveTool(7);
           break;
         }
+        case 'KeyD': {
+          setActiveTool(8);
+          break;
+        }
         case 'KeyT': {
           setActiveTool(9);
           break;

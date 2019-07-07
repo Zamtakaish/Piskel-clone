@@ -13,6 +13,7 @@ import rectangleController from './rectangleController';
 import workspaceInit from '../rendering/workspaceInit';
 import downloadController from './downloadController';
 import rotateController from './rotateController';
+import ditheringController from './ditheringController';
 
 export default function runControllers() {
   workspaceInit();
@@ -30,4 +31,5 @@ export default function runControllers() {
   rectangleController();
   downloadController();
   rotateController();
+  ditheringController();
 }
