@@ -1,4 +1,4 @@
-export default function eraserController() {
+export default function bucketController() {
   const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
   const buttons = document.getElementsByClassName('main__workspace__tools__items__tool');
   const workspace = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
