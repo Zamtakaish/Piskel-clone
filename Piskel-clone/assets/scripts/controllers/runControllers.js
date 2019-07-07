@@ -14,6 +14,7 @@ import workspaceInit from '../rendering/workspaceInit';
 import downloadController from './downloadController';
 import rotateController from './rotateController';
 import ditheringController from './ditheringController';
+import penController from './penController';
 
 export default function runControllers() {
   workspaceInit();
@@ -32,4 +33,5 @@ export default function runControllers() {
   downloadController();
   rotateController();
   ditheringController();
+  penController();
 }

@@ -1,4 +1,3 @@
-import checkButton from './misc/checkButton';
 import renderCurrentCoords from '../rendering/renderCurrentCoords';
 
 export default function canvasController(value) {
@@ -28,8 +27,5 @@ export default function canvasController(value) {
   });
   canvas.addEventListener('mousemove', (event) => {
     renderCurrentCoords(event);
-    if ((checkButton(0)) && (canvas.classList.contains('active'))) {
-      canvasContext.fillRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
-    }
   });
 }
