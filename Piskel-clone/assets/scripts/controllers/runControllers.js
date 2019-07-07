@@ -7,6 +7,7 @@ import previewController from './canvas/previewController';
 import scalingController from './utility buttons/scalingController';
 import workspaceInit from '../rendering/workspaceInit';
 import downloadController from './utility buttons/downloadController';
+import colorSelectorController from './tools/colorSelectorController';
 
 
 export default function runControllers() {
@@ -19,4 +20,5 @@ export default function runControllers() {
   fullscreenController();
   downloadController();
   localStorageController();
+  colorSelectorController();
 }
