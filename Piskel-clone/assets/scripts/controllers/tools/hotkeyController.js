@@ -1,4 +1,4 @@
-import setActiveTool from './misc/setActiveTool';
+import setActiveTool from './utility/setActiveTool';
 
 export default function hotkeyController() {
   document.addEventListener('keydown', (event) => {

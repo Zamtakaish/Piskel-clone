@@ -1,5 +1,5 @@
 import addNewElement from './addNewElement';
-import canvasController from '../controllers/canvasController';
+import canvasController from '../controllers/canvas/canvasController';
 
 export default function renderCanvas(copiedElemId) {
   const canvasList = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];

@@ -1,4 +1,4 @@
-import swapColors from './misc/swapColors';
+import swapColors from './utility/swapColors';
 
 export default function colorPickerController() {
   const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];

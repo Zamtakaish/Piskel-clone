@@ -1,4 +1,4 @@
-import setActiveTool from './misc/setActiveTool';
+import setActiveTool from './utility/setActiveTool';
 
 export default function activeToolController() {
   const toolsList = document.getElementsByClassName('main__workspace__tools__items__tool');

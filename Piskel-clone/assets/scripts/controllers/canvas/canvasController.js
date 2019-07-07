@@ -1,4 +1,4 @@
-import renderCurrentCoords from '../rendering/renderCurrentCoords';
+import renderCurrentCoords from '../../rendering/renderCurrentCoords';
 
 export default function canvasController(value) {
   const canvas = value;

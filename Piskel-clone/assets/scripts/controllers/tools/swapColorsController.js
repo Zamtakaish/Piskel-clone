@@ -1,4 +1,4 @@
-import swapColors from './misc/swapColors';
+import swapColors from './utility/swapColors';
 
 export default function swapColorsController() {
   const swapButton = document.getElementsByClassName('main__workspace__colors__swap-button')[0];

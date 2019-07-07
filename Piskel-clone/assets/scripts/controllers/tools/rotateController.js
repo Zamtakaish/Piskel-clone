@@ -1,5 +1,5 @@
-import checkButton from './misc/checkButton';
-import updatePreview from '../rendering/updatePreview';
+import checkButton from './utility/checkButton';
+import updatePreview from '../../rendering/updatePreview';
 
 export default function rotateController() {
   const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];

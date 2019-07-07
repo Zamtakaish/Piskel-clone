@@ -1,5 +1,5 @@
-import rescaleCanvas from './misc/rescaleCanvas';
-import changeSizeInfo from '../rendering/changeSizeInfo';
+import rescaleCanvas from '../canvas/utility/rescaleCanvas';
+import changeSizeInfo from '../../rendering/changeSizeInfo';
 
 export default function scalingController() {
   const wrapper = document.getElementsByClassName('main__workspace__size-scale')[0];

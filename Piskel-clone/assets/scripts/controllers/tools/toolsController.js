@@ -8,6 +8,7 @@ import ditheringController from './ditheringController';
 import rotateController from './rotateController';
 import activeToolController from './activeToolController';
 import hotkeyController from './hotkeyController';
+import swapColorsController from './swapColorsController';
 
 export default function toolsController() {
   activeToolController();
@@ -20,4 +21,5 @@ export default function toolsController() {
   moveToolController();
   ditheringController();
   rotateController();
+  swapColorsController();
 }
