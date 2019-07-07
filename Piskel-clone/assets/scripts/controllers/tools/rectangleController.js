@@ -1,5 +1,5 @@
-import checkButton from './misc/checkButton';
-import updatePreview from '../rendering/updatePreview';
+import checkButton from './utility/checkButton';
+import updatePreview from '../../rendering/updatePreview';
 
 export default function rectangleController() {
   const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];
@@ -67,10 +67,14 @@ export default function rectangleController() {
       canvasContext.strokeStyle = document.getElementById('curr-color').style.backgroundColor;
       drawRect(canvasContext);
       tempContext.restore();
-      tempContext.clearRect(0, 0, canvas.width, canvas.height);
+      tempContext.clearRect(0, 0, canvasTemp.width, canvasTemp.height);
       updatePreview();
     }
   }
+  function abort() {
+    tempContext.restore();
+    tempContext.clearRect(0, 0, canvasTemp.width, canvasTemp.height);
+  }
   canvasWrapper.addEventListener('mouseup', render);
-  canvasWrapper.addEventListener('mouseleave', render);
+  canvasWrapper.addEventListener('mouseleave', abort);
 }

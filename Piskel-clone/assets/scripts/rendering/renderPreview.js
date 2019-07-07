@@ -14,7 +14,7 @@ export default function renderPreview() {
   const newElement = addNewElement('canvas', 'main__workspace__preview', parent, id);
   newElement.classList += ' current';
 
-  const previewSize = Math.floor(getComputedStyle(parent).height.slice(0, -2) / 32) * 32 * 0.8;
+  const previewSize = Math.floor(getComputedStyle(parent).height.slice(0, -2) / 32) * 32;
   newElement.width = previewSize;
   newElement.height = previewSize;
   updatePreview();

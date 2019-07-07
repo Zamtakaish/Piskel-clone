@@ -1,4 +1,4 @@
-import checkButton from './misc/checkButton';
+import checkButton from './utility/checkButton';
 
 export default function moveToolController() {
   const canvasWrapper = document.getElementsByClassName('main__workspace__canvas_wrapper')[0];

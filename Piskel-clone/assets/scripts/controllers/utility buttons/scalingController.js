@@ -1,8 +1,10 @@
-import rescaleCanvas from './misc/rescaleCanvas';
+import rescaleCanvas from '../canvas/utility/rescaleCanvas';
+import changeSizeInfo from '../../rendering/changeSizeInfo';
 
 export default function scalingController() {
   const wrapper = document.getElementsByClassName('main__workspace__size-scale')[0];
   const canvasArray = document.getElementsByClassName('main__workspace__canvas');
+  changeSizeInfo();
 
   function rescaleHandler(event) {
     const currentSize = wrapper.getElementsByClassName('current')[0];
@@ -38,6 +40,7 @@ export default function scalingController() {
         }
       }
       wrapper.setAttribute('scale', nextScale);
+      changeSizeInfo();
     }
   }
 

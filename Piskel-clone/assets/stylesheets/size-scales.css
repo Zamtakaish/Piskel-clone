@@ -18,7 +18,7 @@
     box-shadow: 0 0 5px 3px #5df4e4;
     border-radius: 10px;
     text-align: center;
-    font-size: 1vw;
+    font-size: 0.85vw;
     color: #052629;
 }
 .main__workspace__size-scale__item:hover{
@@ -28,4 +28,11 @@
 }
 .main__workspace__size-scale__item.current{
     background-color: rgba(93,244,228,1);
+}
+.main__workspace__size-scale__current-size-display{
+    margin-top: 40%;
+}
+.main__workspace__size-scale__current-size-display, .main__workspace__size-scale__current-coords-display{
+    color: rgba(93,244,228,1);
+    font-size: 0.85vw;
 }

@@ -1,9 +1,9 @@
-import renderLayer from '../rendering/renderLayer';
-import renderCanvas from '../rendering/renderCanvas';
-import renderPreview from '../rendering/renderPreview';
-import renderAnimation from '../rendering/renderAnimation';
+import renderLayer from '../../rendering/renderLayer';
+import renderCanvas from '../../rendering/renderCanvas';
+import renderPreview from '../../rendering/renderPreview';
+import renderAnimation from '../../rendering/renderAnimation';
 
-export default function layerEventController() {
+export default function framesController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
   document.getElementById('add-layer').addEventListener('click', () => {
     renderLayer();

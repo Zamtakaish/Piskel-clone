@@ -1,3 +1,5 @@
+import setCursor from './setCursor';
+
 export default function resetActiveClass(index) {
   const buttonContainer = document.getElementsByClassName('main__workspace__tools__items')[0];
   const buttons = document.getElementsByClassName('main__workspace__tools__items__tool');
@@ -6,4 +8,5 @@ export default function resetActiveClass(index) {
     current[0].className = current[0].className.replace(' active', '');
   }
   buttons[index].className += ' active';
+  setCursor(index);
 }

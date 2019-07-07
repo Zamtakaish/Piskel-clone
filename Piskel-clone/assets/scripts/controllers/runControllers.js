@@ -1,31 +1,22 @@
-import toolsController from './toolsController';
-import layerEventController from './layerEventController';
+import toolsController from './tools/toolsController';
+import framesController from './frames/framesController';
 import localStorageController from './localStorageController';
-import fullscreenController from './fullscreenController';
-import fpsController from './fpsController';
-import eraserController from './eraserController';
-import bucketController from './bucketController';
-import previewController from './previewController';
-import scalingController from './scalingController';
-import swapColorsController from './swapColorsController';
-import moveToolController from './moveToolController';
-import rectangleController from './rectangleController';
+import fullscreenController from './utility buttons/fullscreenController';
+import fpsController from './utility buttons/fpsController';
+import previewController from './canvas/previewController';
+import scalingController from './utility buttons/scalingController';
 import workspaceInit from '../rendering/workspaceInit';
-import downloadController from './downloadController';
+import downloadController from './utility buttons/downloadController';
+
 
 export default function runControllers() {
   workspaceInit();
-  toolsController();
-  eraserController();
-  bucketController();
-  layerEventController();
-  localStorageController();
   previewController();
+  framesController();
+  toolsController();
   scalingController();
   fpsController();
   fullscreenController();
-  swapColorsController();
-  moveToolController();
-  rectangleController();
   downloadController();
+  localStorageController();
 }

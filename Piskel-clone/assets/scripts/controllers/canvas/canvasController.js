@@ -1,18 +1,11 @@
-import checkButton from './misc/checkButton';
+import renderCurrentCoords from '../../rendering/renderCurrentCoords';
 
 export default function canvasController(value) {
   const canvas = value;
   const canvasContext = canvas.getContext('2d');
-  const canvasSize = canvas.width;
   const frameScale = +document.getElementsByClassName('main__workspace__size-scale')[0].getAttribute('scale');
-  let scaleSize;
-
-  function setCanvasScale(currentScale) {
-    scaleSize = canvasSize / currentScale;
-    canvasContext.scale(scaleSize, scaleSize);
-  }
-
-  setCanvasScale(frameScale);
+  const scaleSize = canvas.width / frameScale;
+  canvasContext.scale(scaleSize, scaleSize);
 
   canvas.addEventListener('mousedown', () => {
     canvas.className += ' active';
@@ -23,10 +16,9 @@ export default function canvasController(value) {
   });
   canvas.addEventListener('mouseleave', () => {
     canvas.className = canvas.className.replace(' active', '');
+    renderCurrentCoords();
   });
   canvas.addEventListener('mousemove', (event) => {
-    if ((checkButton(0)) && (canvas.classList.contains('active'))) {
-      canvasContext.fillRect(Math.floor(event.offsetX / scaleSize), Math.floor(event.offsetY / scaleSize), 1, 1);
-    }
+    renderCurrentCoords(event);
   });
 }
