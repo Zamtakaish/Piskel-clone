@@ -95,3 +95,6 @@
 .current{
     background-color: rgba(230, 170, 244, 0.3)
 }
+.main__workspace__tools__items__tool_button>span{
+    color: #26fbe8;
+}
