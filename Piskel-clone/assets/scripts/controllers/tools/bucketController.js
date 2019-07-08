@@ -28,7 +28,6 @@ export default function bucketController() {
     }
 
     function fillPixel() {
-
       while (suitablePixelStack.length) {
         let currentPixel = suitablePixelStack.pop();
         const currentPixelColor = `rgba(${canvasData.data[currentPixel * scaledLength * 4]}, ${canvasData.data[currentPixel * 4 + 1]}, ${canvasData.data[currentPixel * 4 + 2]}, ${canvasData.data[currentPixel * 4 + 3]})`;
@@ -40,13 +39,13 @@ export default function bucketController() {
         let reachLeft = false;
         let reachRight = false;
         while ((currentPixel < 1024) && matchStartColor(currentPixelColor)) {
-            canvasContext.fillRect(currentPixel % 32, Math.floor(currentPixel / 32), 1, 1);
+          canvasContext.fillRect(currentPixel % 32, Math.floor(currentPixel / 32), 1, 1);
 
-            const newPixel = Math.floor(currentPixel / 32) * canvasWidth + (currentPixel % 32) * scaledLength;
+          const newPixel = Math.floor(currentPixel / 32) * canvasWidth + (currentPixel % 32) * scaledLength;
 
           if ((currentPixel % 32) !== 0) {
-              const newPixelColor = `rgba(${canvasData.data[(newPixel - scaledLength) * 4]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 1]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 2]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 3]})`;
-              console.log(newPixel);
+            const newPixelColor = `rgba(${canvasData.data[(newPixel - scaledLength) * 4]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 1]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 2]}, ${canvasData.data[(newPixel - scaledLength) * 4 + 3]})`;
+            console.log(newPixel);
             if (matchStartColor(newPixelColor)) {
               if (!reachLeft) {
                 suitablePixelStack.push(currentPixel - 1);
@@ -58,7 +57,7 @@ export default function bucketController() {
           }
 
           if (((currentPixel + 1) % 32) !== 0) {
-              const newPixelColor = `rgba(${canvasData.data[(newPixel + 1) * 4]}, ${canvasData.data[(newPixel + 1) * 4 + 1]}, ${canvasData.data[(newPixel + 1) * 4 + 2]}, ${canvasData.data[(newPixel + 1) * 4 + 3]})`;
+            const newPixelColor = `rgba(${canvasData.data[(newPixel + 1) * 4]}, ${canvasData.data[(newPixel + 1) * 4 + 1]}, ${canvasData.data[(newPixel + 1) * 4 + 2]}, ${canvasData.data[(newPixel + 1) * 4 + 3]})`;
             if (matchStartColor(newPixelColor)) {
               if (!reachRight) {
                 suitablePixelStack.push(currentPixel + 1);
@@ -68,21 +67,20 @@ export default function bucketController() {
               reachRight = false;
             }
           }
-            currentPixel += 32;
+          currentPixel += 32;
         }
       }
-
     }
 
-      canvasContext.fillStyle = fillColor;
+    canvasContext.fillStyle = fillColor;
     if (buttonContainer.getElementsByClassName('active')[0] === buttons[2]) {
-        const currCanvas = workspace.getElementsByClassName('current')[0];
-        const currContext = currCanvas.getContext('2d');
-        currContext.fillStyle = document.getElementById('curr-color').style.backgroundColor;
-        currContext.fillRect(0,0, canvas.width, canvas.width);
-/*      if (fillColor !== eventPixelColor) {
+      const currCanvas = workspace.getElementsByClassName('current')[0];
+      const currContext = currCanvas.getContext('2d');
+      currContext.fillStyle = document.getElementById('curr-color').style.backgroundColor;
+      currContext.fillRect(0, 0, canvas.width, canvas.width);
+      /*      if (fillColor !== eventPixelColor) {
         fillPixel();
-      }*/
+      } */
     }
   }
 
