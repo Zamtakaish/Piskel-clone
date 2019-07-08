@@ -10,5 +10,7 @@
 | Jun 29 | Jun 30 | 11h | scaling canvas implementation, reworking tools and adding new |
 | Jun 30 | Jul 1 | 14h | add preview animation adn fulscreen mode, implement landing page |
 | Jun 2 | Jul 3 | 6h | correct some tools behaviour, animation show, implement download |
+| Jun 5 | Jul 6 | 5h | investigation of unit tests, extra tools, external API |
+| Jun 7 | Jul 8 | 9h | rotate and dithering tool implementation, custom color selector |
 
-### Total: 77h.
+### Total: 93h.
