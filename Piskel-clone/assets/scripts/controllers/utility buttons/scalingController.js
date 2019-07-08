@@ -4,6 +4,14 @@ import changeSizeInfo from '../../rendering/changeSizeInfo';
 export default function scalingController() {
   const wrapper = document.getElementsByClassName('main__workspace__size-scale')[0];
   const canvasArray = document.getElementsByClassName('main__workspace__canvas');
+  if (localStorage.getItem('scale') !== null) {
+    const currentSize = wrapper.getElementsByClassName('current')[0];
+    if (currentSize.getAttribute('id').slice(1) !== localStorage.getItem('scale')) {
+      currentSize.className = currentSize.className.replace(' current', '');
+      const newSize = document.getElementById(`x${localStorage.getItem('scale')}`);
+      newSize.className += ' current';
+    }
+  }
   changeSizeInfo();
 
   function rescaleHandler(event) {
@@ -42,6 +50,7 @@ export default function scalingController() {
       wrapper.setAttribute('scale', nextScale);
       changeSizeInfo();
     }
+    localStorage.setItem('scale', targetButton.getAttribute('id').slice(1));
   }
 
   return wrapper.addEventListener('click', rescaleHandler);

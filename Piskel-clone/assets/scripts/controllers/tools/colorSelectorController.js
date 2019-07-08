@@ -22,5 +22,7 @@ export default function colorSelectorController() {
   colorSelector.addEventListener('click', (event) => {
     const changingColor = activeColors.getElementsByClassName('active')[0];
     changingColor.style.backgroundColor = event.target.style.backgroundColor;
+    localStorage.setItem('curr-color', document.getElementById('curr-color').style.backgroundColor);
+    localStorage.setItem('prev-color', document.getElementById('prev-color').style.backgroundColor);
   });
 }
