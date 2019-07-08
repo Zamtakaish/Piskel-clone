@@ -101,8 +101,11 @@
 <footer class="footer">
     <button class="footer_button_reset">Reset</button>
     <button class="footer_button_download" animated="0">Download</button>
-    <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
-           min="1" max="24" value="1" step="1">
+    <div class="footer_button_animate-rate_wrapper">
+        <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
+               min="1" max="24" value="1" step="1">
+        <div class="footer_button_animate-rate_highlight"></div>
+    </div>
     <button class="footer_button_fullscreen">Fullscreen</button>
 </footer>
 <script src="./dist/bundle.js"></script>
