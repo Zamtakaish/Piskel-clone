@@ -5,10 +5,18 @@ import renderAnimation from '../../rendering/renderAnimation';
 
 export default function framesController() {
   const layersList = document.getElementsByClassName('main__workspace__layers')[0];
+  if (localStorage.getItem('frames') !== null) {
+    for (let i = 1; i < +localStorage.getItem('frames'); i += 1) {
+      renderLayer();
+      renderCanvas();
+      renderPreview();
+    }
+  }
   document.getElementById('add-layer').addEventListener('click', () => {
     renderLayer();
     renderCanvas();
     renderPreview();
+    localStorage.setItem('frames', layersList.lastElementChild.getAttribute('id').slice(1));
   });
   layersList.addEventListener('click', (event) => {
     const eventElement = event.target;
@@ -41,6 +49,7 @@ export default function framesController() {
       renderLayer();
       renderCanvas(copiedElemId);
       renderPreview();
+      localStorage.setItem('frames', layersList.lastElementChild.getAttribute('id').slice(1));
     }
 
     if (eventElement.classList.contains('main__workspace__layers__layer__delete_icon')) {
@@ -54,6 +63,7 @@ export default function framesController() {
       document.getElementById(newId).classList += ' current';
       document.getElementsByClassName('main__workspace__preview')[0].classList += ' current';
       renderAnimation();
+      localStorage.setItem('frames', layersList.lastElementChild.getAttribute('id').slice(1));
     }
   });
 }

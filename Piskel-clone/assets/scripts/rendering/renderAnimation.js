@@ -2,6 +2,7 @@ const GIF = require('../gif/gif');
 
 export default function renderAnimation() {
   const canvasPreview = document.getElementsByClassName('main__workspace__preview');
+  const fps = +document.getElementById('fps').getAttribute('value');
 
   let previewContext;
   const animation = new GIF({
@@ -13,7 +14,7 @@ export default function renderAnimation() {
   });
   for (let i = 0; i < canvasPreview.length; i += 1) {
     previewContext = canvasPreview[i].getContext('2d');
-    animation.addFrame(previewContext, { delay: 200 });
+    animation.addFrame(previewContext, { delay: Math.floor(1000 / fps) });
   }
 
   animation.on('finished', (blob) => {

@@ -6,7 +6,7 @@ export default function renderCurrentCoords(event) {
   if (arguments.length) {
     const currentX = Math.floor(event.offsetX / stepSize);
     const currentY = Math.floor(event.offsetY / stepSize);
-    coordsPreview.innerHTML = `[${currentX} X: ${currentY} Y]`;
+    coordsPreview.innerHTML = `[${currentX} X : ${currentY} Y]`;
   } else {
     coordsPreview.innerHTML = '[ : ]';
   }

@@ -12,7 +12,7 @@
 }
 .footer>*{
     margin-right: 30px;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: left;
     outline-style: none;
     background-color: rgba(93,244,228,0.3);
@@ -24,4 +24,23 @@
 }
 .footer>*:fullscreen{
     z-index: 10;
+}
+.footer_button_animate-rate_wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.footer_button_animate-rate_highlight{
+    font-size: 0.7vw;
+    width: 45%;
+    height: 90%;
+    position: absolute;
+    left: 30%;
+    bottom: 135%;
+    border: 2px solid pink;
+    border-radius: 10px;
+    background-color: #e85aaa94;
+    text-align: center;
+    visibility: hidden;
 }

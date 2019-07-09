@@ -4,4 +4,6 @@ export default function swapColors() {
   const temp = getComputedStyle(prevColor).backgroundColor;
   prevColor.style.backgroundColor = getComputedStyle(currentColor).backgroundColor;
   currentColor.style.backgroundColor = temp;
+  localStorage.setItem('curr-color', currentColor.style.backgroundColor);
+  localStorage.setItem('prev-color', prevColor.style.backgroundColor);
 }

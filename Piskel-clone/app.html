@@ -14,43 +14,43 @@
                 <ul class="main__workspace__tools__items">
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/pen-icon.svg" alt="paintbucket_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Pen tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Pen tool (<span>P</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/eye-dropper-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Color Picker tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Color Picker tool (<span>O</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/paint-bucket-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Paint Bucket tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Paint Bucket tool (<span>B</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/eraser-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Eraser tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Eraser tool (<span>E</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/rectangle-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Rectangle tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Rectangle tool (<span>R</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/ellipse-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Ellipse tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Ellipse tool (<span>C</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/line-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Stroke Line tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Stroke Line tool (<span>L</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/move-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Move tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Move tool (<span>M</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/dithering-tool-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Dithering tool</div>
+                        <div class="main__workspace__tools__items__tool_button">Dithering tool (<span>D</span>)</div>
                     </li>
                     <li class="main__workspace__tools__items__tool">
                         <img src="assets/pictures/rotate-tool-icon.svg" alt="eyedropper_icon" class="main__workspace__tools__items__tool_icon">
-                        <div class="main__workspace__tools__items__tool_button">Rotate</div>
+                        <div class="main__workspace__tools__items__tool_button">Rotate (<span>R</span>)</div>
                     </li>
                 </ul>
         </section>
@@ -101,8 +101,11 @@
 <footer class="footer">
     <button class="footer_button_reset">Reset</button>
     <button class="footer_button_download" animated="0">Download</button>
-    <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
-           min="1" max="24" value="1" step="1">
+    <div class="footer_button_animate-rate_wrapper">
+        <input type="range" class="footer_button_animate-rate" id="fps" name="fps"
+               min="1" max="24" value="1" step="1">
+        <div class="footer_button_animate-rate_highlight"></div>
+    </div>
     <button class="footer_button_fullscreen">Fullscreen</button>
 </footer>
 <script src="./dist/bundle.js"></script>
