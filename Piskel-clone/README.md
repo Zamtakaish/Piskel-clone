@@ -12,5 +12,6 @@
 | Jul 2 | Jul 3 | 6h | correct some tools behaviour, animation show, implement download |
 | Jul 5 | Jul 6 | 5h | investigation of unit tests, extra tools, external API |
 | Jul 7 | Jul 8 | 9h | rotate and dithering tool implementation, custom color selector |
+| Jul 8 | Jul 9 | 10h | several jest tests, fps control, local storage, minor layout corrections |
 
-### Total: 93h.
+### Total: 103h.
